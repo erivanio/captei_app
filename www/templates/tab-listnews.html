@@ -1,0 +1,99 @@
+<ion-view title="">
+    <div class="bar bar-header bar-yellow">
+        <div class="col col-33">
+            <a href=""><img src="img/logo.png" alt="">
+            </a>
+        </div>
+        <div class="col col-50">
+            <label class="item item-input item-select select-tag-header">
+                <select ng-model="myTag" ng-options="tag.nome for tag in tags">
+                    <option value="">Todas</option>
+                </select>
+            </label>
+           
+        </div>
+        <div class="col col-20">
+             <button class="button button-icon ion-navicon btn-popover-header" ng-click="modal.show()">
+        </button>
+        </div>
+    </div>
+    
+    <ion-content class="has-header padding">
+        <ion-refresher on-refresh="doRefresh()"
+             pulling-text="Deslise para atualizar..."
+             refreshing-text="Atualizando!"
+             refreshing-icon="ion-loading-c">
+        </ion-refresher>
+        <ion-list class="list">
+            <ion-item ng-repeat="alerta in alertas" class="item item-thumbnail-left item-list-news" type="item-text-wrap" href="#/tab/item/{{alerta.id}}">
+                <img ng-if="alerta.noticia.foto" src="{{ alerta.noticia.foto }}">
+                <p class="news-data">{{alerta.noticia.site}} - {{alerta.noticia.data_publicacao| date:'dd/MM/yyyy'}}</p>
+                <h2 class="news-titulo">{{alerta.noticia.titulo}}</h2>
+                <p class="news-tag"><span ng-repeat="tag in alerta.tags">{{tag.nome}}</span></p>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll on-infinite="loadMore();" distance="10%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>
+
+
+
+
+
+<script id="templates/modal-filter.html" type="text/ng-template">
+    <ion-modal-view>
+         <div class="bar bar-header bar-yellow">
+            <div class="h1 title">Filtros</div>
+            <button class="button button-clear  button-icon ion-ios-close-empty" ng-click="modal.hide()"></button>
+        </div>
+        <ion-content class="has-header padding">
+            <div class="list">
+
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Organizar por:
+                </div>
+                <select>
+                  <option>Blue</option>
+                  <option selected>Green</option>
+                  <option>Red</option>
+                </select>
+              </label>
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Marcar como:
+                </div>
+                <select>
+                  <option>Blue</option>
+                  <option selected>Green</option>
+                  <option>Red</option>
+                </select>
+              </label>
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Classificar por:
+                </div>
+                <select>
+                  <option>Blue</option>
+                  <option selected>Green</option>
+                  <option>Red</option>
+                </select>
+              </label>
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Selecionar:
+                </div>
+                <select>
+                  <option>Blue</option>
+                  <option selected>Green</option>
+                  <option>Red</option>
+                </select>
+              </label>
+
+            </div>
+            <button class="button button-block button-energized icon-left ion-checkmark-round" ng-click="">Aplicar filtro</button>
+        </ion-content>
+    </ion-modal-view>
+</script>
+
+

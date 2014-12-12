@@ -1,0 +1,91 @@
+<ion-view title="Dashboard">
+    <div class="bar bar-header bar-yellow">
+        <div class="h1 title">Adicionar e Gerenciar</div>
+    </div>
+    <ion-content class="has-header">
+        <div class="padding">
+           <button class="button button-block button-energized icon-left ion-ios-plus-empty" ng-click="modal.show()">Nova palavra-chave</button>
+        </div>
+        
+        <div class="item item-divider">
+          Gerenciar palavras-chaves
+        </div>
+        <div class="item item-toggle">
+            Ativar todas
+            <label class="toggle toggle-energized">
+                <input type="checkbox">
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
+            </label>
+        </div><br>
+
+        <ul class="list">
+            <li class="item item-toggle">
+                Dilma
+                <label class="toggle toggle-energized">
+                    <input type="checkbox" checked>
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                iphone
+                <label class="toggle toggle-energized">
+                    <input type="checkbox" checked>
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                Microsoft
+                <label class="toggle toggle-energized">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            
+            <li class="item item-toggle">
+                Avril Lavigne
+                <label class="toggle toggle-energized">
+                    <input type="checkbox" checked>
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+
+        <div class="padding">
+           <button class="button button-block button-energized icon-left ion-ios-checkmark-empty" ng-click="modal.show()">Salvar alterações</button>
+        </div>
+
+      
+    </ion-content>
+</ion-view>
+
+
+<script id="templates/modal-addtag.html" type="text/ng-template">
+    <ion-modal-view>
+         <div class="bar bar-header bar-yellow">
+            <div class="h1 title">Adicionar nova palavra-chave</div>
+            <button class="button button-clear  button-icon ion-ios-close-empty" ng-click="modal.hide()"></button>
+        </div>
+        <ion-content class="has-header padding">
+            <div class="list">
+                <div class="list">
+                  <label class="item item-input item-floating-label">
+                    <span class="input-label">Nome da palavra-chave</span>
+                    <input type="text" placeholder="Nome da palavra-chave">
+                  </label>
+                </div>
+            </div>
+            <button class="button button-block button-energized icon-left ion-ios-checkmark-empty" ng-click="">Salvar</button>
+        </ion-content>
+        
+    </ion-modal-view>
+</script>
