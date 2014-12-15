@@ -6,7 +6,7 @@
         </div>
         <div class="col col-50">
             <label class="item item-input item-select select-tag-header">
-                <select ng-model="myTag" ng-options="tag.nome for tag in tags">
+                <select ng-model="tagSelecionada" ng-options="tag.nome for tag in tags" ng-change="buscaTag();">
                     <option value="">Todas</option>
                 </select>
             </label>
