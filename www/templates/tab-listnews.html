@@ -20,9 +20,10 @@
     
     <ion-content class="has-header padding">
         <ion-refresher on-refresh="doRefresh()"
-             pulling-text="Deslise para atualizar..."
+             pulling-text="Deslize para atualizar..."
              refreshing-text="Atualizando!"
-             refreshing-icon="ion-loading-c">
+             refreshing-icon="ion-load-d"
+             pulling-icon="ion-ios-arrow-down">
         </ion-refresher>
         <ion-list class="list">
             <ion-item ng-repeat="alerta in alertas" class="item item-thumbnail-left item-list-news" type="item-text-wrap" href="#/tab/item/{{alerta.id}}">

@@ -1,8 +1,20 @@
 angular.module('starter.controllers', [])
 
 
-.controller('LoginCtrl', function($scope, $http, $rootScope, $state) {
+.controller('LoginCtrl', function($scope, $http, $rootScope, $state, $ionicPopup, $timeout) {
     $scope.message = '';
+    $scope.showAlert = function() {
+        var alertPopup = $ionicPopup.alert({
+            title: 'Falha no login',
+            template: '<h1 class="ion-alert-circled"></h1><h4>Tente novamente</h4>', // String (optional). The html template to place in the popup body.
+            okType: 'button-small', // String (default: 'button-positive'). The type of the OK button.
+        });
+       
+        $timeout(function() {
+            alertPopup.close(); 
+        }, 3000);
+    };
+
     $scope.login = function(user) {
         $http.post('http://app.captei.info/api-token-auth/', {
             username: user.email,
@@ -13,11 +25,14 @@ angular.module('starter.controllers', [])
       })
       .error(function () {
         console.log('Error: Invalid user or password - '+ user.email +' - '+ user.password);
+        showAlert();
       });
-    }
+    };
+
 })
 
-.controller('AlertasCtrl', function($scope, $stateParams, $rootScope, $http, $ionicLoading, $timeout, $ionicModal) {
+
+.controller('AlertasCtrl', function($scope, $stateParams, $rootScope, $http, $timeout, $ionicModal) {
 
     $http.get('http://app.captei.info/mobile/api-mobile/'+$rootScope.token+'/').success(function (data) {
             var tags = [];
@@ -66,18 +81,6 @@ angular.module('starter.controllers', [])
         $scope.loadMore();
     });
 
-    $ionicLoading.show({
-        content: 'Loading',
-        animation: 'fade-in',
-        showBackdrop: true,
-        maxWidth: 200,
-        showDelay: 0
-    });
-
-    $timeout(function() {
-        $ionicLoading.hide();
-    }, 500);
-
     $ionicModal.fromTemplateUrl('templates/modal-filter.html', {
         scope: $scope
     }).then(function(modal) {
@@ -86,7 +89,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('InternaCtrl', function($scope, $http, $stateParams, $location, $rootScope, $ionicLoading, $timeout) {
+.controller('InternaCtrl', function($scope, $http, $stateParams, $location, $rootScope, $timeout) {
     if($rootScope.token == undefined){
         $location.path('login');
     }
@@ -100,17 +103,7 @@ angular.module('starter.controllers', [])
         $scope.alerta = data.results[0];
     });
 
-    $ionicLoading.show({
-        content: 'Loading',
-        animation: 'fade-in',
-        showBackdrop: true,
-        maxWidth: 200,
-        showDelay: 0
-    });
-
-    $timeout(function() {
-        $ionicLoading.hide();
-    }, 500);
+   
 })
 //
 //.controller('listNewsCtrl', function($scope, $ionicLoading, $timeout, $ionicModal) {
