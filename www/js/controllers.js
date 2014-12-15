@@ -117,6 +117,10 @@ angular.module('starter.controllers', [])
         $scope.alerta = data.results[0];
     });
 
+    $scope.goBack = function() {
+            window.history.go(-1);
+    }
+
    
 })
 
