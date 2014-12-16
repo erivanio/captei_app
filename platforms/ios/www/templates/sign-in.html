@@ -1,0 +1,28 @@
+<ion-view title="'Sign-In'">
+    <ion-content class="bg-login" scroll="false" has-header="true">
+        <div class="padding text-center">
+            <img src="http://app.captei.info/media/dashboard/img/captei.png" alt="">
+        </div>
+        <form ng-submit="login(user);" method="POST">
+            <div class="list list-inset  ">
+                <label class="item item-input">
+                    <i class="icon ion-ios-person-outline placeholder-icon"></i>
+                    <input type="email" placeholder="Email" name="username" ng-model="user.email">
+                </label>
+                <label class="item item-input">
+                    <i class="icon ion-ios-locked-outline placeholder-icon"></i>
+                    <input type="password" placeholder="Senha" name="password" ng-model="user.password">
+                </label>
+            </div>
+
+            <div class="padding">
+                <button class="button button-block button-energized " type="submit">
+                    Entrar
+                </button>
+                 <button class="button button-block ">
+                    Criar conta
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

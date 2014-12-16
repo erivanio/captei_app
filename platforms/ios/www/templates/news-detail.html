@@ -1,0 +1,27 @@
+<ion-view title="">
+  <div class="bar bar-header bar-yellow">
+    <button ng-click="goBack();" class="button icon-left ion-ios-arrow-left button-clear button-dark"></button>
+
+    <div class="h1 title page-title">{{alerta.noticia.titulo}}</div>
+  </div>
+
+  <ion-content class="has-header" padding="true">
+        <div class="button-bar btn-felling">
+          <a class="button button-energized icon-left ion-thumbsup">Positiva</a>
+          <a class="button icon-left ion-thumbsdown">Negativa</a>
+          <a class="button icon-left ion-minus-circled">Neutra</a>
+        </div>
+
+        <div class="list card">
+          <div class="item news-header">                
+                <a class="button icon-top ion-ios-world-outline button-outline button-block button-small button-energized"> Ver no site</a>
+                <p><a class="link-site" href="{{alerta.noticia.link}}">{{alerta.noticia.site}}</a> - {{alerta.noticia.data_publicacao| date:'dd/MM/yyyy'}}</p>
+                <p class="news-tag"><strong>Tags:</strong><span>tag tal</span></p>
+          </div>
+         
+
+          <div class="item item-body news-body" ng-bind-html="alerta.noticia.texto|hrefToJS"></div>
+
+        </div>
+  </ion-content>
+</ion-view>
