@@ -6,7 +6,7 @@
         </div>
         <div class="col col-50">
             <label class="item item-input item-select select-tag-header">
-                <select ng-model="tagSelecionada" ng-options="tag.nome for tag in tags" ng-change="buscaTag();">
+                <select ng-model="tagSelecionada" ng-options="tag.nome for tag in tags" ng-change="busca();">
                     <option value="">Todas</option>
                 </select>
             </label>
@@ -54,10 +54,11 @@
                 <div class="input-label">
                   Organizar por:
                 </div>
-                <select>
-                  <option>Blue</option>
-                  <option selected>Green</option>
-                  <option>Red</option>
+                <select id="orderList" data-ng-change="busca();" ng-model="orderList" class="ng-pristine ng-valid">
+                    <option value="-noticia__data_publicacao">Mais recentes</option>
+                    <option value="noticia__data_publicacao">Mais antigas</option>
+                    <option value="-status_lido">Lidas</option>
+                    <option value="status_lido">Não lidas</option>
                 </select>
               </label>
               <label class="item item-input item-select">

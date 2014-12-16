@@ -60,7 +60,7 @@ angular.module('starter.controllers', [])
 
     $scope.alertLista();
 
-    $scope.buscaTag = function () {
+    $scope.busca = function () {
         $scope.alertas = [];
         $http({
             method: 'GET',
