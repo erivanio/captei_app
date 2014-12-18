@@ -28,7 +28,7 @@
         <ion-list class="list">
             <ion-item ng-repeat="alerta in alertas" class="item item-thumbnail-left item-list-news" type="item-text-wrap" href="#/tab/item/{{alerta.id}}">
                 <img ng-if="alerta.noticia.foto" src="{{ alerta.noticia.foto }}">
-                <p class="news-data">{{alerta.noticia.site}} - {{alerta.noticia.data_publicacao| date:'dd/MM/yyyy'}}</p>
+                <p class="news-data">{{alerta.noticia.site}} - {{alerta.noticia.data_publicacao| timeAgo}}</p>
                 <h2 class="news-titulo">{{alerta.noticia.titulo}}</h2>
                 <p class="news-tag"><span ng-repeat="tag in alerta.tags">{{tag.nome}}</span></p>
             </ion-item>
