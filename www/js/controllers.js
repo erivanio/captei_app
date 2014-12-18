@@ -61,14 +61,24 @@ angular.module('starter.controllers', [])
     $scope.alertLista();
 
     $scope.busca = function () {
+        var order = $("#orderList option:selected").val();
         $scope.alertas = [];
+        if($scope.tagSelecionada != undefined && $scope.tagSelecionada != ''){
+            var tag = $scope.tagSelecionada.id;
+        }
+        if(order == undefined || order == ''){
+            order = '-noticia__data_publicacao';
+            console.log(order);
+        }
         $http({
             method: 'GET',
             url: 'http://app.captei.info/mobile/api-mobile/alertas/'+$rootScope.token+'/',
             params: {
-                tags: $scope.tagSelecionada.id,
+                tags: tag,
+                order: order,
                 format: 'json'}
             }).success(function (data) {
+                console.log(tag+' - '+$scope.orderList+' - '+order);
                 $scope.alertas = $scope.alertas.concat(data.results);
                 $scope.next = data.next;
         });

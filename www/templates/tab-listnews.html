@@ -54,11 +54,9 @@
                 <div class="input-label">
                   Organizar por:
                 </div>
-                <select id="orderList" data-ng-change="busca();" ng-model="orderList" class="ng-pristine ng-valid">
+                <select id="orderList" ng-change="busca();modal.hide();" ng-model="orderList" class="ng-pristine ng-valid">
                     <option value="-noticia__data_publicacao">Mais recentes</option>
                     <option value="noticia__data_publicacao">Mais antigas</option>
-                    <option value="-status_lido">Lidas</option>
-                    <option value="status_lido">Não lidas</option>
                 </select>
               </label>
               <label class="item item-input item-select">
