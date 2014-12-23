@@ -1,172 +1,205 @@
-/* Empty. Add your own CSS if you like */
-
 .bg-login {
-  background: url(../img/bg-login.png) center top no-repeat fixed;
-  background-size: cover;
-  padding: 30% 10%;
+  padding: 15% 10% 5%;
+  background: #e4d300;
 }
-
-.form-login .item-floating-label {
-display: block;
-background-color: #fff;
-box-shadow: none;
+.form-login .list-inset {
+  margin: 10px 0;
 }
-
-.bar.bar-yellow {
-    border-color: #eecc00;
-    background-color: #eecc00;
-    background-image: linear-gradient(0deg, #eecc00, #eecc00 50%, transparent 50%);
-    color: #fff;
-}
-.tabs-yellow > .tabs, .tabs.tabs-yellow {
-    border-color: #d9d9d9;
-    background-color: #d9d9d9;
-    background-image: linear-gradient(0deg, #d9d9d9, #d9d9d9 50%, transparent 50%);
-    color: #000;
-}
-
-.tabs-striped .tab-item.tab-item-active, .tabs-striped .tab-item.active, .tabs-striped .tab-item.activated {
-margin-top: -3px;
-border-style: solid;
-border-width: 3px 0 0 0;
-border-color: #eecc00;
-}
-.bar.bar-yellow .title {
-    color: #fff;
-}
-.pane, .view {
-    background-color: #ecebeb;
-}
-.item-list-news {
-    margin-bottom: 5px;
-}
-.select-tag-header {
-    height: 25px;
-    background: #9b8500;
-    border: none;
-}
-.select-tag-header:after {
-
-color: #fff;
-}
-.select-tag-header select {
-    padding: 2px 15px;
-    left: 0;
-    font-size: 13px;
-    background: transparent;
-    color: #fff;
-    font-weight: bold;
-}
-
-.item-list-news .item-content {
-position: relative;
-z-index: 2;
-padding: 10px 10px 10px 100px;
-border: none;
-background-color: white;
-}
-
-h2.news-titulo{
-    font-size: 12px;
-    overflow: auto;
-    white-space: normal;
-    margin-bottom: 7px;
-}
-
-p.news-data{
-    font-size: 10px;
-    margin-bottom: 7px;
-    line-height: 1.2;
-    
-}
-
-p.news-tag{
-    font-size: 10px;
-    margin-bottom: 5px;
-    overflow: auto;
-    white-space: normal;
-    line-height: 13px;
-}
-
-.news-tag strong{
-  margin-right: 5px;
-}
-
-.news-tag span{
-  margin-right: 3px;
-}
-
-
-
-.news-tag span:after{
- content: '-';
- margin-left: 3px;
-}
-
-.news-header p{
-    font-size: 12px;
-    margin-bottom: 5px;
-}
-
-.news-body h2{
-    margin-top: 0;
-}
-
-
-.btn-popover-header{
-    top: -5px;
-    right: -10px;
-}
-
-.btn-felling{
-
-}
-
-.btn-felling .button{
-    font-size: 12px;
-    line-height: 36px;
-    min-height: 30px;
-}
-
-
-.btn-felling .button.icon-left:before{
-    font-size: 14px;
-    line-height: 33px;
-}
-
-.page-title{
-    padding-left:30px;
-}
-
-.popup-container .popup{
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-.popup-head{
-  border: none;
-  padding-bottom: 5px;
-}
-
-.popup-title{
-  color: #fff;
-}
-
-.popup-body h1, .popup-body h4{
-  color: #fff;
+.remember-me {
+  margin-top: 20px;
   text-align: center;
 }
-
-.news-header .button{
-  margin-top: 0
+.remember-me label {
+  font-size: 13px;
+  font-weight: bold;
+  padding-left: 5px;
+  color: #fff;
 }
-
-.link-site{
-  color: #f0b840
-}
-
-.input-newtag{
+.form-floating-label .item-floating-label span {
   font-size: 12px;
-  color: #BBB;
+  color: #b5b5b5;
+}
+.new-password {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.new-password button {
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff !important;
+}
+button.button-icon-left:before {
+  margin-right: 10px;
+}
+.button-confirm.ion-checkmark:before {
+  margin-right: 10px;
+}
+.bar-footer .title button {
+  font-size: 13px !important;
+  font-weight: bold !important;
+  padding-top: 5px;
+}
+.bar-yellow .ion-ios-close-empty:before {
+  font-weight: bold;
+  color: #fff;
+}
+.bar.bar-yellow {
+  color: #fff;
+  border-color: #ec0;
+  background-color: #ec0;
+  background-image: linear-gradient(0deg, #ec0, #ec0 50%, transparent 50%);
+}
+.tabs-yellow > .tabs, .tabs.tabs-yellow {
+  color: #000;
+  border-color: #d9d9d9;
+  background-color: #d9d9d9;
+  background-image: linear-gradient(0deg, #d9d9d9, #d9d9d9 50%, transparent 50%);
+  padding-top: 0;
 }
 
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+opacity: 1;
+background-color: #ec0;
+color: #fff;
+
+}
+/*.tabs-striped .tab-item.tab-item-active, .tabs-striped .tab-item.active, .tabs-striped .tab-item.activated {
+  margin-top: -3px;
+  border-style: solid;
+  color: #fff;
+  border-color: #ec0;
+  border-width: 3px 0 4px 0;
+}*/
+.bar.bar-yellow .title {
+  color: #fff;
+}
+.pane, .view {
+  background-color: #ecebeb;
+}
+.item-list-news {
+  margin-bottom: 5px;
+}
+.select-tag-header {
+  height: 25px;
+  border: none;
+  background: #9b8500;
+}
+.select-tag-header:after {
+  color: #fff;
+}
+.select-tag-header select {
+  font-size: 13px;
+  font-weight: bold;
+  left: 0;
+  padding: 2px 15px;
+  color: #fff;
+  background: transparent;
+}
+.item-list-news .item-content {
+  position: relative;
+  z-index: 2;
+  padding: 10px 10px 10px 100px;
+  border: none;
+  background-color: white;
+}
+.item-list-news .item-content img {
+  width: 80px;
+  height: 80px;
+}
+.item-noimage .item-content {
+  padding-left: 10px;
+}
+h2.news-titulo {
+  font-size: 12px;
+  overflow: auto;
+  margin-bottom: 7px;
+  white-space: normal;
+}
+p.news-data {
+  font-size: 10px;
+  line-height: 1.2;
+  margin-bottom: 7px;
+}
+p.news-tag {
+  font-size: 10px;
+  line-height: 13px;
+  overflow: auto;
+  margin-bottom: 5px;
+  white-space: normal;
+}
+.news-tag strong {
+  margin-right: 5px;
+}
+.news-tag span {
+  margin-right: 3px;
+}
+.news-tag span:after {
+  margin-left: 3px;
+  content: '-';
+}
+.news-tag span:last-child:after {
+  margin-left: 3px;
+  content: '';
+}
+.news-header p {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.news-body h2 {
+  margin-top: 0;
+}
+
+.news-body h1, .news-body h2, .news-body h3, .news-body h4, .news-body h5, .news-body h6{
+    font-size: 16px;
+}
+
+
+.news-body img{
+  width: 100%;
+}
+.btn-popover-header {
+  top: -5px;
+  right: -10px;
+}
+.btn-felling .button {
+  font-size: 12px;
+  line-height: 36px;
+  min-height: 30px;
+}
+.btn-felling .button.icon-left:before {
+  font-size: 14px;
+  line-height: 33px;
+}
+.page-title {
+  padding-left: 30px;
+}
+.popup-container .popup {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, .5);
+}
+.popup-head {
+  padding-bottom: 5px;
+  border: none;
+}
+.popup-title {
+  color: #fff;
+}
+.popup-body h1, .popup-body h4 {
+  text-align: center;
+  color: #fff;
+}
+.news-header .button {
+  margin-top: 0;
+}
+.link-site {
+  color: #f0b840;
+}
+.input-newtag {
+  font-size: 12px;
+  color: #bbb;
+}
+.no-white-space {
+  white-space: normal;
+}

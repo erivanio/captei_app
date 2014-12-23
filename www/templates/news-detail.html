@@ -14,13 +14,16 @@
 
         <div class="list card">
           <div class="item news-header">                
-                <a class="button icon-top ion-ios-world-outline button-outline button-block button-small button-energized"> Ver no site</a>
+                <a href="{{alerta.noticia.link}}" class="button icon-top ion-ios-world-outline button-outline button-block button-small button-energized"> Ver no site</a>
                 <p><a class="link-site" href="{{alerta.noticia.link}}">{{alerta.noticia.site}}</a> - {{alerta.noticia.data_publicacao| timeAgo}}</p>
                 <p class="news-tag"><strong>Tags:</strong><span>tag tal</span></p>
           </div>
          
 
-          <div class="item item-body news-body" ng-bind-html="alerta.noticia.texto|hrefToJS"></div>
+          <div class="item item-body news-body" ng-bind-html="alerta.noticia.texto|hrefToJS">
+              <h2>{{alerta.noticia.titulo}}</h2>
+              <div ng-bind-html="alerta.noticia.texto|hrefToJS"></div>
+          </div>
 
         </div>
   </ion-content>

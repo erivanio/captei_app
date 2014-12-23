@@ -1,8 +1,9 @@
 <ion-view title="'Sign-In'">
-    <ion-content class="bg-login" scroll="false" has-header="true">
+    <ion-content class="bg-login form-login" scroll="false" has-header="true">
         <div class="padding text-center">
-            <img src="http://app.captei.info/media/dashboard/img/captei.png" alt="">
+            <img src="img/logo_login.png" alt="">
         </div>
+
         <form ng-submit="login(user);" method="POST">
             <div class="list list-inset  ">
                 <label class="item item-input">
@@ -15,14 +16,89 @@
                 </label>
             </div>
 
-            <div class="padding">
-                <button class="button button-block button-energized " type="submit">
+            <div class="button-bar">
+                <button class="button button-block button-small button-energized " type="submit">
                     Entrar
                 </button>
-                 <button class="button button-block ">
-                    Criar conta
+
+                <button class="button button-small button-block" ng-click="openModal(1)">
+                    Cadastre-se
                 </button>
             </div>
+
+            <div class="remember-me">
+                <input type="checkbox" name="remember-me" value="" id="remember-me">
+                <label for="remember-me">Mantenha-me conectado</label>
+            </div>
         </form>
+
+        <div class="new-password">
+            <!--  <button class="button button-block button-energized " ng-click="showAlert()">
+                Entrar
+            </button> -->
+            <button class="button button-block button-clear " ng-click="openModal(2)">
+                Esqueceu sua senha?
+            </button>
+        </div>
     </ion-content>
 </ion-view>
+
+
+<script id="modal-new-account.html" type="text/ng-template">
+    <div class="modal">
+        <ion-modal-view>
+            <div class="bar bar-header bar-yellow">
+                <div class="h1 title">Cadastre-se</div>
+                <button class="button button-clear  button-icon ion-ios-close-empty" ng-click="closeModal(1)"></button>
+            </div>
+            <ion-content class="has-header padding">
+                <form action="" class="form-floating-label">
+                    <div class="list card">
+                        <label class="item item-input item-floating-label">
+                            <span class="input-label">Nome:</span>
+                            <input type="text" placeholder="Nome">
+                        </label>
+                        <label class="item item-input item-floating-label">
+                            <span class="input-label">Email:</span>
+                            <input type="email" placeholder="Email">
+                        </label>
+                        <label class="item item-input item-floating-label">
+                            <span class="input-label">Senha:</span>
+                            <input type="password" placeholder="Senha">
+                        </label>
+                    </div>
+                    <button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="">Criar conta</button>
+                </form>
+                
+            </ion-content>
+            <div class="bar bar-footer bar-energized">
+                <div class="title">
+                    <button class="button button-clear" ng-click="closeModal(1)">Já tem uma conta?</button>
+                </div>
+            </div>
+        </ion-modal-view>
+    </div>
+</script>
+
+<script id="modal-new-password.html" type="text/ng-template">
+    <div class="modal">
+        <ion-modal-view>
+            <div class="bar bar-header bar-yellow">
+                <div class="h1 title">Recuperar senha</div>
+                <button class="button button-clear  button-icon ion-ios-close-empty" ng-click="closeModal(2)"></button>
+            </div>
+            <ion-content class="has-header padding">
+                <p>Forneça o seu endereço de email abaixo e te enviaremos instruções para definir uma nova.</p>
+                <form action="" class="form-floating-label">
+                    <div class="list">
+                        <label class="item item-input item-floating-label">
+                            <span class="input-label">Email:</span>
+                            <input type="email" placeholder="Email">
+                        </label>
+                    </div>
+                    <button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="">Enviar</button>
+                </form>
+            </ion-content>
+        </ion-modal-view>
+    </div>
+</script>

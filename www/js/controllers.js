@@ -1,13 +1,14 @@
 angular.module('starter.controllers', [])
 
 
-.controller('LoginCtrl', function($scope, $http, $rootScope, $state, $ionicPopup, $timeout) {
+.controller('LoginCtrl', function($scope, $http, $rootScope, $state, $ionicPopup, $timeout, $ionicModal) {
     $scope.message = '';
-    $scope.showAlert = function() {
+    
+     $scope.showAlert = function() {
         var alertPopup = $ionicPopup.alert({
             title: 'Falha no login',
-            template: '<h1 class="ion-alert-circled"></h1><h4>Tente novamente</h4>', // String (optional). The html template to place in the popup body.
-            okType: 'button-small', // String (default: 'button-positive'). The type of the OK button.
+            template: '<h1 class="ion-alert-circled"></h1><h4>Tente novamente</h4>',
+            okType: 'button-small', 
         });
        
         $timeout(function() {
@@ -27,6 +28,36 @@ angular.module('starter.controllers', [])
         console.log('Error: Invalid user or password - '+ user.email +' - '+ user.password);
         showAlert();
       });
+    };
+
+      // Modal Cadastre-se
+    $ionicModal.fromTemplateUrl('modal-new-account.html', {
+      id: '1',
+      scope: $scope,
+      backdropClickToClose: false,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.oModal1 = modal;
+    });
+    
+    // Modal Esqueci minha senha
+    $ionicModal.fromTemplateUrl('modal-new-password.html', {
+      id: '2',
+      scope: $scope,
+      backdropClickToClose: false,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.oModal2 = modal;
+    });
+
+    $scope.openModal = function(index) {
+      if(index == 1) $scope.oModal1.show();
+      else $scope.oModal2.show();
+    };
+    
+    $scope.closeModal = function(index) {
+      if(index == 1) $scope.oModal1.hide();
+      else $scope.oModal2.hide();
     };
 
 })

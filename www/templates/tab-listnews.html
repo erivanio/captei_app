@@ -26,6 +26,7 @@
              pulling-icon="ion-ios-arrow-down">
         </ion-refresher>
         <ion-list class="list">
+           <!-- Se a noticia não possuir imagem, ion-item recebe a class="item-noimage" -->
             <ion-item ng-repeat="alerta in alertas" class="item item-thumbnail-left item-list-news" type="item-text-wrap" href="#/tab/item/{{alerta.id}}">
                 <img ng-if="alerta.noticia.foto" src="{{ alerta.noticia.foto }}">
                 <p class="news-data">{{alerta.noticia.site}} - {{alerta.noticia.data_publicacao| timeAgo}}</p>
@@ -49,7 +50,16 @@
         </div>
         <ion-content class="has-header padding">
             <div class="list">
+              <label class="item item-input">
+                  <span class="input-label">Data inicial</span>
+                  <input type="date">
+              </label>
 
+              <label class="item item-input">
+                  <span class="input-label">Data final</span>
+                  <input type="date">
+              </label>
+              
               <label class="item item-input item-select">
                 <div class="input-label">
                   Organizar por:
@@ -91,8 +101,7 @@
               </label>
 
             </div>
-            <button class="button button-block button-energized icon-left ion-checkmark-round" ng-click="">Aplicar filtro</button>
-        </ion-content>
+<button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="">Aplicar</button>        </ion-content>
     </ion-modal-view>
 </script>
 
