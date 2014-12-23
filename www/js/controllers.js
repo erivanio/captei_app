@@ -1,14 +1,14 @@
 angular.module('starter.controllers', [])
 
 
-.controller('LoginCtrl', function($scope, $http, $rootScope, $state, $ionicPopup, $timeout, $ionicModal) {
+.controller('LoginCtrl', function($scope, $http, $rootScope, $state, $ionicPopup, $timeout, $ionicModal, $window) {
     $scope.message = '';
-    
-     $scope.showAlert = function() {
+
+    $scope.showAlert = function() {
         var alertPopup = $ionicPopup.alert({
-            title: 'Falha no login',
+            title: 'Email e/ou senha inválida',
             template: '<h1 class="ion-alert-circled"></h1><h4>Tente novamente</h4>',
-            okType: 'button-small', 
+            okType: 'button-small'
         });
        
         $timeout(function() {
@@ -16,18 +16,29 @@ angular.module('starter.controllers', [])
         }, 3000);
     };
 
+    if($window.localStorage['token'] != undefined){
+        $rootScope.token = $window.localStorage['token'];
+        console.log("***localStorage: "+$window.localStorage['token']);
+        $state.go('tab.listnews');
+    }
+
     $scope.login = function(user) {
         $http.post('http://app.captei.info/api-token-auth/', {
             username: user.email,
             password: user.password
         }).success(function (data) {
-        $rootScope.token = data.token;
-        $state.go('tab.listnews');
-      })
-      .error(function () {
-        console.log('Error: Invalid user or password - '+ user.email +' - '+ user.password);
-        showAlert();
-      });
+            $rootScope.token = data.token;
+            if(user.remember == true){
+                $window.localStorage['token'] = data.token;
+                console.log("***localStorage: true "+$window.localStorage['token']);
+            }else{
+                $window.localStorage.clear();
+                console.log("***localStorage: false "+$window.localStorage['token']);
+            }
+            $state.go('tab.listnews');
+        }).error(function () {
+            $scope.showAlert();
+          });
     };
 
       // Modal Cadastre-se
@@ -164,4 +175,10 @@ angular.module('starter.controllers', [])
     });
 })
 
-.controller('settingsCtrl', function($scope) {});
+.controller('settingsCtrl', function($scope, $window, $state) {
+     $scope.logout = function() {
+         $window.localStorage.clear();
+         console.log('Sair : '+ $window.localStorage['token']);
+         $state.go('signin');
+    }
+});
