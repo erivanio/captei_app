@@ -6,7 +6,7 @@
         </div>
         <div class="col col-50">
             <label class="item item-input item-select select-tag-header">
-                <select ng-model="tagSelecionada" ng-options="tag.nome for tag in tags" ng-change="busca();">
+                <select ng-model="tagSelecionada" ng-options="tag.id as tag.nome for tag in tags" ng-change="alertLista();">
                     <option value="">Todas</option>
                 </select>
             </label>
@@ -27,7 +27,7 @@
         </ion-refresher>
         <ion-list class="list">
            <!-- Se a noticia não possuir imagem, ion-item recebe a class="item-noimage" -->
-            <ion-item ng-repeat="alerta in alertas" class="item item-thumbnail-left item-list-news" type="item-text-wrap" href="#/tab/item/{{alerta.id}}">
+            <ion-item ng-repeat="alerta in alertas" ng-class="{'item-noimage': !alerta.noticia.foto}" class="item item-thumbnail-left item-list-news" type="item-text-wrap" href="#/tab/item/{{alerta.id}}">
                 <img ng-if="alerta.noticia.foto" src="{{ alerta.noticia.foto }}">
                 <p class="news-data">{{alerta.noticia.site}} - {{alerta.noticia.data_publicacao| timeAgo}}</p>
                 <h2 class="news-titulo">{{alerta.noticia.titulo}}</h2>
@@ -64,7 +64,7 @@
                 <div class="input-label">
                   Organizar por:
                 </div>
-                <select id="orderList" ng-change="busca();modal.hide();" ng-model="orderList" class="ng-pristine ng-valid">
+                <select id="orderList" ng-change="alertLista();modal.hide();" ng-model="orderList" class="ng-pristine ng-valid">
                     <option value="-noticia__data_publicacao">Mais recentes</option>
                     <option value="noticia__data_publicacao">Mais antigas</option>
                 </select>

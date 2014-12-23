@@ -39,7 +39,7 @@ angular.module('starter.controllers', [])
     }).then(function(modal) {
       $scope.oModal1 = modal;
     });
-    
+
     // Modal Esqueci minha senha
     $ionicModal.fromTemplateUrl('modal-new-password.html', {
       id: '2',
@@ -54,7 +54,7 @@ angular.module('starter.controllers', [])
       if(index == 1) $scope.oModal1.show();
       else $scope.oModal2.show();
     };
-    
+
     $scope.closeModal = function(index) {
       if(index == 1) $scope.oModal1.hide();
       else $scope.oModal2.hide();
@@ -77,43 +77,34 @@ angular.module('starter.controllers', [])
     });
 
     $scope.alertLista = function () {
-        $scope.alertas = [];
-        $http({
-            method: 'GET',
-            url: 'http://app.captei.info/mobile/api-mobile/alertas/'+$rootScope.token+'/',
-            params: {
-                format: 'json'}
-            }).success(function (data) {
-                $scope.alertas = $scope.alertas.concat(data.results);
-                $scope.next = data.next;
-        });
-    };
-
-    $scope.alertLista();
-
-    $scope.busca = function () {
         var order = $("#orderList option:selected").val();
+        var tag_val = $scope.tagSelecionada;
         $scope.alertas = [];
-        if($scope.tagSelecionada != undefined && $scope.tagSelecionada != ''){
-            var tag = $scope.tagSelecionada.id;
-        }
         if(order == undefined || order == ''){
             order = '-noticia__data_publicacao';
             console.log(order);
         }
+        if(tag_val == undefined || tag_val == ''){
+            tag_val = null;
+        }
+
+        console.log(order+" - " + $scope.tagSelecionada);
+
         $http({
             method: 'GET',
             url: 'http://app.captei.info/mobile/api-mobile/alertas/'+$rootScope.token+'/',
             params: {
-                tags: tag,
+                tags: tag_val,
                 order: order,
                 format: 'json'}
             }).success(function (data) {
-                console.log(tag+' - '+$scope.orderList+' - '+order);
+                console.log('*****sucesso: '+tag_val+' - '+order);
                 $scope.alertas = $scope.alertas.concat(data.results);
                 $scope.next = data.next;
-        });
+            });
     };
+
+    $scope.alertLista();
 
     $scope.doRefresh = function() {
         $timeout( function() {
@@ -144,7 +135,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('InternaCtrl', function($scope, $http, $stateParams, $location, $rootScope, $timeout) {
+.controller('InternaCtrl', function($scope, $http, $stateParams, $location, $rootScope, $state) {
     if($rootScope.token == undefined){
         $location.path('login');
     }
@@ -159,10 +150,10 @@ angular.module('starter.controllers', [])
     });
 
     $scope.goBack = function() {
-            window.history.go(-1);
+        $state.go('tab.listnews');
     }
 
-   
+
 })
 
 .controller('addtagCtrl', function($scope, $ionicModal) {
