@@ -90,12 +90,16 @@ angular.module('starter.controllers', [])
     $scope.resetaFiltro = function() {
         $("#data-inicio").val(null);
         $("#data-fim").val(null);
+        $("#q").val(null);
+        $("#orderList").val('-noticia__data_publicacao');
+        $("#classificacaoList").val('');
         $scope.alertLista();
     };
 
     $scope.alertLista = function () {
         var order = $("#orderList option:selected").val();
         var classificacao = $("#classificacaoList option:selected").val();
+        var q = $("#q").val();
         var dia_inicio = $("#data-inicio").val();
         var dia_fim = $("#data-fim").val();
         var tag_val = $scope.tagSelecionada;
@@ -117,6 +121,7 @@ angular.module('starter.controllers', [])
             method: 'GET',
             url: 'http://app.captei.info/mobile/api-mobile/alertas/'+$rootScope.token+'/',
             params: {
+                q: q,
                 tags: tag_val,
                 order: order,
                 data_inicio: dia_inicio,
@@ -124,7 +129,7 @@ angular.module('starter.controllers', [])
                 classificacao: classificacao,
                 format: 'json'}
             }).success(function (data) {
-                console.log('*****sucesso: '+tag_val+' - '+order+" - "+dia_inicio+" - "+dia_fim);
+                console.log('*****sucesso: '+tag_val+' - '+order+" - "+dia_inicio+" - "+dia_fim+" - "+q);
                 $scope.alertas = $scope.alertas.concat(data.results);
                 $scope.next = data.next;
             });
