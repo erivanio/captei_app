@@ -52,56 +52,58 @@
             <div class="list">
               <label class="item item-input">
                   <span class="input-label">Data inicial</span>
-                  <input type="date">
+                  <input type="date" id="data-inicio">
               </label>
 
               <label class="item item-input">
                   <span class="input-label">Data final</span>
-                  <input type="date">
+                  <input type="date" id="data-fim">
               </label>
               
               <label class="item item-input item-select">
                 <div class="input-label">
                   Organizar por:
                 </div>
-                <select id="orderList" ng-change="alertLista();modal.hide();" ng-model="orderList" class="ng-pristine ng-valid">
-                    <option value="-noticia__data_publicacao">Mais recentes</option>
+                <select id="orderList" ng-model="orderList" class="ng-pristine ng-valid">
+                    <option value="">Mais recentes</option>
                     <option value="noticia__data_publicacao">Mais antigas</option>
                 </select>
               </label>
-              <label class="item item-input item-select">
-                <div class="input-label">
-                  Marcar como:
-                </div>
-                <select>
-                  <option>Blue</option>
-                  <option selected>Green</option>
-                  <option>Red</option>
-                </select>
-              </label>
-              <label class="item item-input item-select">
-                <div class="input-label">
-                  Classificar por:
-                </div>
-                <select>
-                  <option>Blue</option>
-                  <option selected>Green</option>
-                  <option>Red</option>
-                </select>
-              </label>
-              <label class="item item-input item-select">
-                <div class="input-label">
-                  Selecionar:
-                </div>
-                <select>
-                  <option>Blue</option>
-                  <option selected>Green</option>
-                  <option>Red</option>
-                </select>
-              </label>
+              <!--<label class="item item-input item-select">-->
+                <!--<div class="input-label">-->
+                  <!--Marcar como:-->
+                <!--</div>-->
+                <!--<select>-->
+                  <!--<option>Blue</option>-->
+                  <!--<option selected>Green</option>-->
+                  <!--<option>Red</option>-->
+                <!--</select>-->
+              <!--</label>-->
+              <!--<label class="item item-input item-select">-->
+                <!--<div class="input-label">-->
+                  <!--Classificar por:-->
+                <!--</div>-->
+                <!--<select>-->
+                  <!--<option>Blue</option>-->
+                  <!--<option selected>Green</option>-->
+                  <!--<option>Red</option>-->
+                <!--</select>-->
+              <!--</label>-->
+              <!--<label class="item item-input item-select">-->
+                <!--<div class="input-label">-->
+                  <!--Selecionar:-->
+                <!--</div>-->
+                <!--<select>-->
+                  <!--<option>Blue</option>-->
+                  <!--<option selected>Green</option>-->
+                  <!--<option>Red</option>-->
+                <!--</select>-->
+              <!--</label>-->
 
             </div>
-<button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="">Aplicar</button>        </ion-content>
+        <button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="alertLista();modal.hide();">Aplicar</button>
+        <button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="resetaFiltro();modal.hide();">Limpar Filtros</button>
+        </ion-content>
     </ion-modal-view>
 </script>
 

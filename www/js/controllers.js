@@ -87,19 +87,30 @@ angular.module('starter.controllers', [])
             console.log(tags);
     });
 
+    $scope.resetaFiltro = function() {
+        $("#data-inicio").val(null);
+        $("#data-fim").val(null);
+        $scope.alertLista();
+    };
+
     $scope.alertLista = function () {
         var order = $("#orderList option:selected").val();
+        var dia_inicio = $("#data-inicio").val();
+        var dia_fim = $("#data-fim").val();
         var tag_val = $scope.tagSelecionada;
         $scope.alertas = [];
         if(order == undefined || order == ''){
             order = '-noticia__data_publicacao';
-            console.log(order);
         }
         if(tag_val == undefined || tag_val == ''){
             tag_val = null;
         }
-
-        console.log(order+" - " + $scope.tagSelecionada);
+        if(dia_inicio == undefined || dia_inicio == ''){
+            dia_inicio = null;
+        }
+        if(dia_fim == undefined || dia_fim == ''){
+            dia_fim = null;
+        }
 
         $http({
             method: 'GET',
@@ -107,9 +118,11 @@ angular.module('starter.controllers', [])
             params: {
                 tags: tag_val,
                 order: order,
+                data_inicio: dia_inicio,
+                data_fim: dia_fim,
                 format: 'json'}
             }).success(function (data) {
-                console.log('*****sucesso: '+tag_val+' - '+order);
+                console.log('*****sucesso: '+tag_val+' - '+order+" - "+dia_inicio+" - "+dia_fim);
                 $scope.alertas = $scope.alertas.concat(data.results);
                 $scope.next = data.next;
             });
