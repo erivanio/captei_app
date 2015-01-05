@@ -180,6 +180,10 @@ angular.module('starter.controllers', [])
         $scope.alerta = data.results[0];
     });
 
+    $scope.openDeviceBrowser = function(externalLinkToOpen) {
+      window.open(externalLinkToOpen, '_system', 'location=no');
+    };
+
     $scope.goBack = function() {
         $state.go('tab.listnews');
     }
