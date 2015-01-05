@@ -67,18 +67,23 @@
                 <select id="orderList" ng-model="orderList" class="ng-pristine ng-valid">
                     <option value="">Mais recentes</option>
                     <option value="noticia__data_publicacao">Mais antigas</option>
+                    <option value="-status_lido">Lidas</option>
+                    <option value="status_lido">Não Lidas</option>
                 </select>
               </label>
-              <!--<label class="item item-input item-select">-->
-                <!--<div class="input-label">-->
-                  <!--Marcar como:-->
-                <!--</div>-->
-                <!--<select>-->
-                  <!--<option>Blue</option>-->
-                  <!--<option selected>Green</option>-->
-                  <!--<option>Red</option>-->
-                <!--</select>-->
-              <!--</label>-->
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Classificação por:
+                </div>
+                <select id="classificacaoList">
+                  <option value="">Todas</option>
+                  <option value="1">Positiva</option>
+                  <option value="2">Negativa</option>
+                  <option value="3">Mista</option>
+                  <option value="4">Neutra</option>
+                  <option value="5">Sem classificação</option>
+                </select>
+              </label>
               <!--<label class="item item-input item-select">-->
                 <!--<div class="input-label">-->
                   <!--Classificar por:-->

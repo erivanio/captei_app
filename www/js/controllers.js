@@ -95,6 +95,7 @@ angular.module('starter.controllers', [])
 
     $scope.alertLista = function () {
         var order = $("#orderList option:selected").val();
+        var classificacao = $("#classificacaoList option:selected").val();
         var dia_inicio = $("#data-inicio").val();
         var dia_fim = $("#data-fim").val();
         var tag_val = $scope.tagSelecionada;
@@ -120,6 +121,7 @@ angular.module('starter.controllers', [])
                 order: order,
                 data_inicio: dia_inicio,
                 data_fim: dia_fim,
+                classificacao: classificacao,
                 format: 'json'}
             }).success(function (data) {
                 console.log('*****sucesso: '+tag_val+' - '+order+" - "+dia_inicio+" - "+dia_fim);
