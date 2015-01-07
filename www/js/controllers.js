@@ -22,24 +22,51 @@ angular.module('starter.controllers', [])
         $state.go('tab.listnews');
     }
 
-    $scope.login = function(user) {
-        $http.post('http://app.captei.info/api-token-auth/', {
-            username: user.email,
-            password: user.password
+    $scope.esqueceuSenha = function(email) {
+        console.log(email);
+        $http.post('http://app.captei.info/esqueceu-a-senha/', {
+            email: email
         }).success(function (data) {
+            console.log('deu certo: '+ data);
+        }).error(function (data) {
+            console.log('deu errado: '+ data);
+        });
+    };
+
+    $scope.cadastrar = function(user) {
+        $http({
+            method: 'POST',
+            url: 'http://app.captei.info/cadastre-se/',
+            data: $.param({nome: user.nome, email: user.email, password1: user.password, password2: user.password2, mobile: 'true'}),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function () {
+            $scope.login(user);
+        })
+    };
+
+    $scope.login = function(user) {
+        console.log(user);
+        $http({
+            method: 'POST',
+            url: 'http://app.captei.info/mobile/token/',
+            data: $.param({username: user.email, password: user.password}),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function (data) {
+            console.log('entrou');
             $rootScope.token = data.token;
             if(user.remember == true){
                 $window.localStorage['token'] = data.token;
-                console.log("***localStorage: true "+$window.localStorage['token']);
             }else{
                 $window.localStorage.clear();
-                console.log("***localStorage: false "+$window.localStorage['token']);
             }
+            $scope.oModal1.hide();
             $state.go('tab.listnews');
-        }).error(function () {
+        }).error(function (data) {
+            console.log(" deu erro*****"+ JSON.stringify(data) + " - " +user.email + " - " + user.password);
             $scope.showAlert();
-          });
+        });
     };
+
 
       // Modal Cadastre-se
     $ionicModal.fromTemplateUrl('modal-new-account.html', {
@@ -202,7 +229,6 @@ angular.module('starter.controllers', [])
 .controller('settingsCtrl', function($scope, $window, $state) {
      $scope.logout = function() {
          $window.localStorage.clear();
-         console.log('Sair : '+ $window.localStorage['token']);
          $state.go('signin');
     }
 });

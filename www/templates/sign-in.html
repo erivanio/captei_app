@@ -52,22 +52,26 @@
                 <button class="button button-clear  button-icon ion-ios-close-empty" ng-click="closeModal(1)"></button>
             </div>
             <ion-content class="has-header padding">
-                <form action="" class="form-floating-label">
+                <form ng-submit="cadastrar(user);" class="form-floating-label">
                     <div class="list card">
                         <label class="item item-input item-floating-label">
                             <span class="input-label">Nome:</span>
-                            <input type="text" placeholder="Nome">
+                            <input type="text" data-ng-model="user.nome" name="nome" placeholder="Nome">
                         </label>
                         <label class="item item-input item-floating-label">
                             <span class="input-label">Email:</span>
-                            <input type="email" placeholder="Email">
+                            <input type="email" data-ng-model="user.email" name="email" placeholder="Email">
                         </label>
                         <label class="item item-input item-floating-label">
                             <span class="input-label">Senha:</span>
-                            <input type="password" placeholder="Senha">
+                            <input type="password" data-ng-model="user.password" name="password1" placeholder="Senha">
+                        </label>
+                        <label class="item item-input item-floating-label">
+                            <span class="input-label">Confirme sua senha:</span>
+                            <input type="password" data-ng-model="user.password2" name="password2" placeholder="Confirme sua senha">
                         </label>
                     </div>
-                    <button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="">Criar conta</button>
+                    <button class="button button-block button-energized button-icon-left ion-checkmark" type="submit">Criar conta</button>
                 </form>
                 
             </ion-content>
@@ -89,14 +93,14 @@
             </div>
             <ion-content class="has-header padding">
                 <p>Forneça o seu endereço de email abaixo e te enviaremos instruções para definir uma nova.</p>
-                <form action="" class="form-floating-label">
+                <form data-ng-submit="esqueceuSenha(email);" class="form-floating-label">
                     <div class="list">
                         <label class="item item-input item-floating-label">
                             <span class="input-label">Email:</span>
-                            <input type="email" placeholder="Email">
+                            <input type="email" id="id_email" name="email" data-ng-model="email" placeholder="Email">
                         </label>
                     </div>
-                    <button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="">Enviar</button>
+                    <button class="button button-block button-energized button-icon-left ion-checkmark" type="submit">Enviar</button>
                 </form>
             </ion-content>
         </ion-modal-view>
