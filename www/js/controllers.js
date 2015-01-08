@@ -101,10 +101,10 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('AlertasCtrl', function($scope, $stateParams, $rootScope, $http, $timeout, $ionicModal) {
+.controller('AlertasCtrl', function($scope, $stateParams, $rootScope, $http, $timeout, $ionicModal, $window) {
 
     $http.get('http://app.captei.info/mobile/api-mobile/'+$rootScope.token+'/').success(function (data) {
-            var tags = [];
+            var tags = [{"id": null, "nome": "Todas"}];
             angular.forEach(data, function(perfil) {
                 angular.forEach(perfil.tags, function(tag) {
                     tags.push(tag);
@@ -120,7 +120,12 @@ angular.module('starter.controllers', [])
         $("#q").val(null);
         $("#orderList").val('-noticia__data_publicacao');
         $("#classificacaoList").val('');
+        $window.localStorage['tag'].clear();
         $scope.alertLista();
+    };
+
+    $scope.salvaFiltro = function() {
+        $window.localStorage['tag'] = $scope.tagSelecionada;
     };
 
     $scope.alertLista = function () {
@@ -129,13 +134,13 @@ angular.module('starter.controllers', [])
         var q = $("#q").val();
         var dia_inicio = $("#data-inicio").val();
         var dia_fim = $("#data-fim").val();
-        var tag_val = $scope.tagSelecionada;
+        var tag_val = null;
+        if(!isNaN($window.localStorage['tag'])){
+            tag_val = $window.localStorage['tag'];
+        }
         $scope.alertas = [];
         if(order == undefined || order == ''){
             order = '-noticia__data_publicacao';
-        }
-        if(tag_val == undefined || tag_val == ''){
-            tag_val = null;
         }
         if(dia_inicio == undefined || dia_inicio == ''){
             dia_inicio = null;
@@ -143,7 +148,6 @@ angular.module('starter.controllers', [])
         if(dia_fim == undefined || dia_fim == ''){
             dia_fim = null;
         }
-
         $http({
             method: 'GET',
             url: 'http://app.captei.info/mobile/api-mobile/alertas/'+$rootScope.token+'/',

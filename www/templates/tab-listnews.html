@@ -6,8 +6,7 @@
         </div>
         <div class="col col-50">
             <label class="item item-input item-select select-tag-header">
-                <select ng-model="tagSelecionada" ng-options="tag.id as tag.nome for tag in tags" ng-change="alertLista();">
-                    <option value="">Todas</option>
+                <select id="tagSelect" ng-model="tagSelecionada" ng-options="tag.id as tag.nome for tag in tags" ng-change="salvaFiltro();alertLista();">
                 </select>
             </label>
            
