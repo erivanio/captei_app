@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'ngSanitize', 'yaru22.angular-timeago'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives','ngSanitize', 'yaru22.angular-timeago'])
 
 .filter('hrefToJS', function($sce, $sanitize) {
     return function(text) {

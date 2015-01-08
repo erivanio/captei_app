@@ -52,23 +52,27 @@
                 <button class="button button-clear  button-icon ion-ios-close-empty" ng-click="closeModal(1)"></button>
             </div>
             <ion-content class="has-header padding">
-                <form ng-submit="cadastrar(user);" class="form-floating-label">
+                <form on-valid-submit="cadastrar(user);" class="form-floating-label">
                     <div class="list card">
-                        <label class="item item-input item-floating-label">
+                        <label class="item item-input item-floating-label validated">
                             <span class="input-label">Nome:</span>
-                            <input type="text" data-ng-model="user.nome" name="nome" placeholder="Nome">
+                            <input type="text" ng-model="user.nome" required="required" name="nome" placeholder="Nome">
+                            <i class="icon ion-alert-circled error"></i>
                         </label>
-                        <label class="item item-input item-floating-label">
+                        <label class="item item-input item-floating-label validated">
                             <span class="input-label">Email:</span>
-                            <input type="email" data-ng-model="user.email" name="email" placeholder="Email">
+                            <input type="email" ng-model="user.email" required="required" name="email" placeholder="Email">
+                            <i class="icon ion-alert-circled error"></i>
                         </label>
-                        <label class="item item-input item-floating-label">
+                        <label class="item item-input item-floating-label validated">
                             <span class="input-label">Senha:</span>
-                            <input type="password" data-ng-model="user.password" name="password1" placeholder="Senha">
+                            <input type="password" ng-model="user.password" required="required" name="password1" placeholder="Senha">
+                            <i class="icon ion-alert-circled error"></i>
                         </label>
-                        <label class="item item-input item-floating-label">
+                        <label class="item item-input item-floating-label validated">
                             <span class="input-label">Confirme sua senha:</span>
-                            <input type="password" data-ng-model="user.password2" name="password2" placeholder="Confirme sua senha">
+                            <input type="password" ng-model="user.password2" required="required" name="password2" placeholder="Confirme sua senha">
+                            <i class="icon ion-alert-circled error"></i>
                         </label>
                     </div>
                     <button class="button button-block button-energized button-icon-left ion-checkmark" type="submit">Criar conta</button>
