@@ -18,18 +18,18 @@ angular.module('starter.controllers', [])
 
     if($window.localStorage['token'] != undefined){
         $rootScope.token = $window.localStorage['token'];
-        console.log("***localStorage: "+$window.localStorage['token']);
         $state.go('tab.listnews');
     }
 
     $scope.esqueceuSenha = function(email) {
-        console.log(email);
-        $http.post('http://app.captei.info/esqueceu-a-senha/', {
+        $http.post('http://app.captei.info/mobile/esqueceu-a-senha/', {
             email: email
         }).success(function (data) {
             console.log('deu certo: '+ data);
+            $scope.oModal2.hide();
         }).error(function (data) {
             console.log('deu errado: '+ data);
+            $scope.oModal2.hide();
         });
     };
 
@@ -52,7 +52,6 @@ angular.module('starter.controllers', [])
             data: $.param({username: user.email, password: user.password}),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function (data) {
-            console.log('entrou');
             $rootScope.token = data.token;
             if(user.remember == true){
                 $window.localStorage['token'] = data.token;
@@ -62,11 +61,9 @@ angular.module('starter.controllers', [])
             $scope.oModal1.hide();
             $state.go('tab.listnews');
         }).error(function (data) {
-            console.log(" deu erro*****"+ JSON.stringify(data) + " - " +user.email + " - " + user.password);
             $scope.showAlert();
         });
     };
-
 
       // Modal Cadastre-se
     $ionicModal.fromTemplateUrl('modal-new-account.html', {
@@ -103,16 +100,23 @@ angular.module('starter.controllers', [])
 
 .controller('AlertasCtrl', function($scope, $stateParams, $rootScope, $http, $timeout, $ionicModal, $window) {
 
-    $http.get('http://app.captei.info/mobile/api-mobile/'+$rootScope.token+'/').success(function (data) {
-            var tags = [{"id": null, "nome": "Todas"}];
+    $scope.pegaTags = function(){
+        $http.get('http://app.captei.info/mobile/api-mobile/'+$rootScope.token+'/').success(function (data) {
+            var tags = [{"id": 0, "nome": "Todas"}];
             angular.forEach(data, function(perfil) {
                 angular.forEach(perfil.tags, function(tag) {
                     tags.push(tag);
                 });
             });
-            $scope.tags = tags;
-            console.log(tags);
-    });
+            $rootScope.tags = tags;
+        });
+    };
+
+    if($rootScope.tags == undefined){
+        $scope.pegaTags();
+    }else{
+        $scope.tags = $rootScope.tags;
+    }
 
     $scope.resetaFiltro = function() {
         $("#data-inicio").val(null);
@@ -134,10 +138,21 @@ angular.module('starter.controllers', [])
         var q = $("#q").val();
         var dia_inicio = $("#data-inicio").val();
         var dia_fim = $("#data-fim").val();
-        var tag_val = null;
+        var tag_val = [];
         if(!isNaN($window.localStorage['tag'])){
-            tag_val = $window.localStorage['tag'];
+            if($window.localStorage['tag'] != 0 ){
+                tag_val.push($window.localStorage['tag']);
+            }else{
+                angular.forEach($rootScope.tags, function(tag) {
+                    tag_val.push(tag.id);
+                });
+            }
+        }else{
+            angular.forEach($rootScope.tags, function(tag) {
+                tag_val.push(tag.id);
+            });
         }
+        console.log("valor do tag_val: "+tag_val);
         $scope.alertas = [];
         if(order == undefined || order == ''){
             order = '-noticia__data_publicacao';
@@ -222,7 +237,31 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('addtagCtrl', function($scope, $ionicModal) {
+.controller('addtagCtrl', function($scope, $ionicModal, $state, $rootScope, $http) {
+    $http.get('http://app.captei.info/mobile/api-mobile/'+$rootScope.token+'/').success(function (data) {
+        var tags = [];
+        angular.forEach(data, function(perfil) {
+            angular.forEach(perfil.tags, function(tag) {
+                tags.push(tag);
+            });
+        });
+        $scope.tags = tags;
+        console.log(tags);
+    });
+
+    $scope.selecionarTags = function (tags) {
+        var resultTags = [];
+        angular.forEach(tags, function(tag) {
+            if(tag.isSelected){
+                 resultTags.push({"id":tag.id, "nome":tag.nome});
+            }
+        });
+        resultTags.unshift({"id": 0, "nome": "Todas"});
+        console.log(resultTags);
+        $rootScope.tags = resultTags;
+        $state.go('tab.listnews');
+    };
+
     $ionicModal.fromTemplateUrl('templates/modal-addtag.html', {
         scope: $scope
     }).then(function(modal) {

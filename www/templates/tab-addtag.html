@@ -19,7 +19,7 @@
         <div class="item item-toggle">
             Ativar todas
             <label class="toggle toggle-energized">
-                <input type="checkbox">
+                <ui-select-all items="tags" prop="isSelected" ng-disabled="checked"></ui-select-all>
                 <div class="track">
                     <div class="handle"></div>
                 </div>
@@ -28,38 +28,10 @@
         <br>
 
         <ul class="list">
-            <li class="item item-toggle">
-                Dilma
+            <li ng-repeat="tag in tags" class="item item-toggle">
+                {{tag.nome}}
                 <label class="toggle toggle-energized">
-                    <input type="checkbox" checked>
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </li>
-            <li class="item item-toggle">
-                iphone
-                <label class="toggle toggle-energized">
-                    <input type="checkbox" checked>
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </li>
-            <li class="item item-toggle">
-                Microsoft
-                <label class="toggle toggle-energized">
-                    <input type="checkbox">
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </li>
-
-            <li class="item item-toggle">
-                Avril Lavigne
-                <label class="toggle toggle-energized">
-                    <input type="checkbox" checked>
+                    <input type="checkbox" ng-model="tag.isSelected" ng-init="tag.isSelected=true">
                     <div class="track">
                         <div class="handle"></div>
                     </div>
@@ -68,13 +40,12 @@
         </ul>
 
         <div>
-            <button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="">Salvar alterações</button>
+            <button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="selecionarTags(tags);">Salvar alterações</button>
         </div>
 
 
     </ion-content>
 </ion-view>
-
 
 <script id="templates/modal-addtag.html" type="text/ng-template">
     <ion-modal-view>
