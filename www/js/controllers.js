@@ -284,7 +284,7 @@ angular.module('starter.controllers', [])
         resultTags.unshift({"id": 0, "nome": "Todas"});
         console.log(resultTags);
         $rootScope.tags = resultTags;
-        $state.go('tab.listnews');
+        $state.go('tab.listnews', null, { reload: true });
     };
 
     $ionicModal.fromTemplateUrl('templates/modal-addtag.html', {
