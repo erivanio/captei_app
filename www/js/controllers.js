@@ -152,7 +152,6 @@ angular.module('starter.controllers', [])
                 tag_val.push(tag.id);
             });
         }
-        console.log("valor do tag_val: "+tag_val);
         $scope.alertas = [];
         if(order == undefined || order == ''){
             order = '-noticia__data_publicacao';
@@ -237,17 +236,43 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('addtagCtrl', function($scope, $ionicModal, $state, $rootScope, $http) {
-    $http.get('http://app.captei.info/mobile/api-mobile/'+$rootScope.token+'/').success(function (data) {
-        var tags = [];
-        angular.forEach(data, function(perfil) {
-            angular.forEach(perfil.tags, function(tag) {
-                tags.push(tag);
+.controller('addtagCtrl', function($scope, $ionicModal, $ionicLoading, $state, $rootScope, $http) {
+
+    $scope.loadTags = function () {
+        $http.get('http://app.captei.info/mobile/api-mobile/' + $rootScope.token + '/').success(function (data) {
+            var tags = [];
+            angular.forEach(data, function (perfil) {
+                angular.forEach(perfil.tags, function (tag) {
+                    tags.push(tag);
+                });
+            });
+            $scope.tags = tags;
+            $scope.perfil_key = data[0].key;
+            console.log(tags);
+        });
+        $http.get('http://app.captei.info/mobile/api-usuario/'+$rootScope.token+'/').success(function (data) {
+            $scope.quantidade_tag = data[0].quantidade_tag;
+        });
+    };
+
+    $scope.loadTags();
+
+    $scope.addTag = function (tag_adicionada) {
+         $http({
+            method: 'POST',
+            url: 'http://app.captei.info/mobile/add-tag/'+$rootScope.token+'/',
+            data: $.param({tags: tag_adicionada, key: $scope.perfil_key}),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function () {
+            $scope.loadTags();
+            $ionicLoading.show({
+              template: 'Aguarde...',
+              delay: 500,
+              duration: 3000
             });
         });
-        $scope.tags = tags;
-        console.log(tags);
-    });
+        $scope.modal.hide();
+    };
 
     $scope.selecionarTags = function (tags) {
         var resultTags = [];

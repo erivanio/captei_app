@@ -14,7 +14,7 @@
         <a class="item" href="#">
 
           Palavras chaves disponíveis
-          <span class="badge badge-energized">155</span>
+          <span class="badge badge-energized">{{ quantidade_tag }}</span>
         </a>
         <div class="item item-toggle">
             Ativar todas
@@ -54,15 +54,15 @@
             <button class="button button-clear  button-icon ion-ios-close-empty" ng-click="modal.hide()"></button>
         </div>
         <ion-content class="has-header padding">
-            <form action="" class="form-floating-label">
+            <form data-ng-submit="addTag(tag_adicionada);" class="form-floating-label">
                 <div class="list">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">Palavra-chave:</span>
-                        <input type="text" placeholder="Digite a palavra-chave desejada">
+                        <input type="text" data-ng-model="tag_adicionada" name="tag" placeholder="Digite a palavra-chave desejada">
                     </label>
                 </div>
+                <button class="button button-block button-energized button-icon-left ion-checkmark" type="submit">Salvar</button>
             </form>
-            <button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="">Salvar</button>
         </ion-content>
 
     </ion-modal-view>
