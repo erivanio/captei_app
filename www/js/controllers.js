@@ -260,8 +260,13 @@ angular.module('starter.controllers', [])
         });
         $http.get('http://app.captei.info/mobile/api-usuario/'+$rootScope.token+'/').success(function (data) {
             $scope.quantidade_tag = data[0].quantidade_tag;
-            $scope.plano_quantidade = data[0].pacote_tag.quantidade;
+            if(data[0].pacote_tag == undefined){
+                $scope.plano_quantidade = 2;
+            }else{
+                $scope.plano_quantidade = data[0].pacote_tag.quantidade;
+            }
         });
+
     };
 
     $scope.loadTags();
