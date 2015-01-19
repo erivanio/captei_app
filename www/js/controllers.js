@@ -40,8 +40,17 @@ angular.module('starter.controllers', [])
             data: $.param({nome: user.nome, email: user.email, password1: user.password, password2: user.password2, mobile: 'true'}),
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).success(function () {
-            $scope.login(user);
-        })
+            $http({
+                method: 'POST',
+                url: 'http://app.captei.info/mobile/token/',
+                data: $.param({username: user.email, password: user.password}),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function (data) {
+                $rootScope.token = data.token;
+                $scope.oModal1.hide();
+                $state.go('tab.addtag');
+            })
+        });
     };
 
     $scope.login = function(user) {
@@ -114,7 +123,7 @@ angular.module('starter.controllers', [])
 
     if($rootScope.tags == undefined){
         $scope.pegaTags();
-    }else{
+    }else {
         $scope.tags = $rootScope.tags;
     }
 
@@ -248,7 +257,6 @@ angular.module('starter.controllers', [])
             });
             $scope.tags = tags;
             $scope.perfil_key = data[0].key;
-            console.log(tags);
         });
         $http.get('http://app.captei.info/mobile/api-usuario/'+$rootScope.token+'/').success(function (data) {
             $scope.quantidade_tag = data[0].quantidade_tag;
@@ -281,7 +289,6 @@ angular.module('starter.controllers', [])
             $scope.loadTags();
             $ionicLoading.show({
                 template: 'Aguarde...',
-                delay: 500,
                 duration: 3000
             });
         });
