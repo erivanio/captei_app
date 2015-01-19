@@ -19,7 +19,7 @@
         <div class="item item-toggle">
             Ativar todas
             <label class="toggle toggle-energized">
-                <ui-select-all items="tags" prop="isSelected" ng-disabled="checked"></ui-select-all>
+                <ui-select-all items="tags" prop="isSelected"></ui-select-all>
                 <div class="track">
                     <div class="handle"></div>
                 </div>
@@ -31,7 +31,8 @@
             <li ng-repeat="tag in tags" class="item item-toggle">
                 {{tag.nome}}
                 <label class="toggle toggle-energized">
-                    <input type="checkbox" ng-model="tag.isSelected" ng-init="tag.isSelected=true">
+                    <input type="checkbox" ng-if="comparaTag(tag.id)" ng-model="tag.isSelected" ng-init="tag.isSelected=true">
+                    <input type="checkbox" ng-if="!comparaTag(tag.id)" ng-model="tag.isSelected">
                     <div class="track">
                         <div class="handle"></div>
                     </div>

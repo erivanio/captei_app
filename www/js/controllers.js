@@ -257,8 +257,22 @@ angular.module('starter.controllers', [])
 
     $scope.loadTags();
 
+    $scope.comparaTag = function (TagId){
+        var ids = [];
+        angular.forEach($rootScope.tags, function (obj) {
+            ids.push(obj.id);
+        });
+        var count = ids.length;
+        for(var i = 0; i < count; i++) {
+            if(TagId === ids[i]){
+                return true;
+            }
+        }
+        return false;
+    };
+
     $scope.addTag = function (tag_adicionada) {
-         $http({
+        $http({
             method: 'POST',
             url: 'http://app.captei.info/mobile/add-tag/'+$rootScope.token+'/',
             data: $.param({tags: tag_adicionada, key: $scope.perfil_key}),
@@ -266,13 +280,14 @@ angular.module('starter.controllers', [])
         }).success(function () {
             $scope.loadTags();
             $ionicLoading.show({
-              template: 'Aguarde...',
-              delay: 500,
-              duration: 3000
+                template: 'Aguarde...',
+                delay: 500,
+                duration: 3000
             });
         });
         $scope.modal.hide();
     };
+
 
     $scope.selecionarTags = function (tags) {
         var resultTags = [];
@@ -294,8 +309,9 @@ angular.module('starter.controllers', [])
     });
 })
 
-.controller('settingsCtrl', function($scope, $window, $state) {
+.controller('settingsCtrl', function($scope, $window, $state, $rootScope) {
      $scope.logout = function() {
+         delete $rootScope.tags;
          $window.localStorage.clear();
          $state.go('signin');
     }
