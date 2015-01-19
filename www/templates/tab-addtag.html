@@ -3,7 +3,7 @@
         <div class="h1 title">Adicionar e Gerenciar</div>
     </div>
     <ion-content class="has-header padding">
-        <div class="">
+        <div ng-if="plano_quantidade < 20" class="">
             <button class="button button-block button-energized button-icon-left ion-plus" ng-click="modal.show()">Nova palavra-chave</button>
         </div>
 
