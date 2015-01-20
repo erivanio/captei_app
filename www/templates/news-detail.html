@@ -7,9 +7,9 @@
 
   <ion-content class="has-header" padding="true">
         <div class="button-bar btn-felling">
-          <a class="button button-energized icon-left ion-thumbsup">Positiva</a>
-          <a class="button icon-left ion-thumbsdown">Negativa</a>
-          <a class="button icon-left ion-minus-circled">Neutra</a>
+          <button id="btnPositivo" class="button icon-left ion-thumbsup" ng-class="{'button-energized ': alerta.classificacao == 1}" ng-click="updateAlerta(1)" >Positiva</button>
+          <button id="btnNegativo" class="button icon-left ion-thumbsdown" ng-class="{'button-energized ': alerta.classificacao == 2}" ng-click="updateAlerta(2)">Negativa</button>
+          <button id="btnNeutro" class="button icon-left ion-minus-circled" ng-class="{'button-energized ': alerta.classificacao == 4}" ng-click="updateAlerta(4)">Neutra</button>
         </div>
 
         <div class="list card">

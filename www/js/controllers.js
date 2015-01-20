@@ -234,6 +234,19 @@ angular.module('starter.controllers', [])
         $scope.alerta = data.results[0];
     });
 
+    $scope.updateAlerta = function(classificacao) {
+        $http({
+          method:'PUT',
+          url:'http://app.captei.info/mobile/update-classificacao/' + $stateParams.itemId + '/',
+          data: $.param({classificacao: classificacao, status: true}),
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function(data){
+            console.log('entrou - ' + data);
+        }).error(function(){
+            console.log('Deu erro');
+        });
+    };
+
     $scope.openDeviceBrowser = function(externalLinkToOpen) {
       window.open(externalLinkToOpen, '_system', 'location=no');
     };
