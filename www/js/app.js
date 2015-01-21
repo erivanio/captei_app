@@ -45,10 +45,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
     // Each state's controller can be found in controllers.js
     $stateProvider
 
-        .state('signin', {
+    .state('signin', {
         url: "/sign-in",
         templateUrl: "templates/sign-in.html",
         controller: 'LoginCtrl'
+    })
+
+    .state('intro', {
+        url: "/intro",
+        templateUrl: "templates/intro.html",
+        controller: 'IntroCtrl'
     })
 
 
