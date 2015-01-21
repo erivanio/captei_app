@@ -240,10 +240,22 @@ angular.module('starter.controllers', [])
           url:'http://app.captei.info/mobile/update-classificacao/' + $stateParams.itemId + '/',
           data: $.param({classificacao: classificacao, status: true}),
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        }).success(function(data){
-            console.log('entrou - ' + data);
-        }).error(function(){
-            console.log('Deu erro');
+        }).success(function(){
+            if(classificacao == 1){
+                $("#btnPositivo").addClass("button-energized");
+                $("#btnNegativo").removeClass("button-energized");
+                $("#btnNeutro").removeClass("button-energized");
+            }
+            if(classificacao == 2){
+                $("#btnPositivo").removeClass("button-energized");
+                $("#btnNegativo").addClass("button-energized");
+                $("#btnNeutro").removeClass("button-energized");
+            }
+            if(classificacao == 4){
+                $("#btnPositivo").removeClass("button-energized");
+                $("#btnNegativo").removeClass("button-energized");
+                $("#btnNeutro").addClass("button-energized");
+            }
         });
     };
 
