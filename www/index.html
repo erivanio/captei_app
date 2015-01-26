@@ -29,7 +29,42 @@
     <script src="js/angular-timeago.js"></script>
   </head>
   
-  <body ng-app="starter" animation="slide-left-right">
+  <body ng-app="starter" onload="onLoad()" animation="slide-left-right">
     <ion-nav-view></ion-nav-view>
-  </body>
+   <script>
+    function onLoad() {
+        if(( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) )) {
+            document.addEventListener('deviceready', initApp, false);
+        } else {
+            initApp();
+        }
+    }
+	var admobid = {};
+	if( /(android)/i.test(navigator.userAgent) ) {
+		admobid = { // for Android
+			banner: 'ca-app-pub-6869992474017983/9375997553',
+			interstitial: 'ca-app-pub-6869992474017983/1657046752'
+		};
+	} else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
+		admobid = { // for iOS
+			banner: 'ca-app-pub-1299496522279735/6129623009',
+			interstitial: 'ca-app-pub-1299496522279735/6129623009'
+		};
+	} else {
+		admobid = { // for Windows Phone
+			banner: 'ca-app-pub-6869992474017983/8878394753',
+			interstitial: 'ca-app-pub-6869992474017983/1355127956'
+		};
+	}
+
+    function initApp() {
+		if(AdMob) AdMob.createBanner( {
+            adId: admobid.banner,
+            position: AdMob.AD_POSITION.BOTTOM_CENTER,
+            autoShow: true } );
+    }
+
+</script>
+
+</body>
 </html>
