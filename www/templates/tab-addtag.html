@@ -16,7 +16,7 @@
           Palavras chaves disponíveis
           <span class="badge badge-energized">{{ quantidade_tag }}</span>
         </a>
-        <div class="item item-toggle">
+        <div class="item item-toggle"  ng-if="tags.length>=1">
             Ativar todas
             <label class="toggle toggle-energized">
                 <ui-select-all items="tags" prop="isSelected"></ui-select-all>

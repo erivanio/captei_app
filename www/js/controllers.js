@@ -116,7 +116,7 @@ angular.module('starter.controllers', [])
 
         // Called to navigate to the main app
         $scope.startApp = function () {
-            $state.go('tab.addtag');
+            $state.go('tab.listnews');
             window.localStorage['didTutorial'] = true;
         };
 
@@ -124,7 +124,7 @@ angular.module('starter.controllers', [])
         // Check if the user already did the tutorial and skip it if so
         if (window.localStorage['didTutorial'] === "true") {
             console.log('Skip intro');
-            $state.go('tab.listnews');
+            $scope.startApp();
         }
 
         $scope.next = function () {
@@ -141,7 +141,7 @@ angular.module('starter.controllers', [])
     })
 
 
-    .controller('AlertasCtrl', function ($scope, $stateParams, $rootScope, $http, $timeout, $ionicModal, $window) {
+    .controller('AlertasCtrl', function ($scope, $state, $stateParams, $rootScope, $http, $timeout, $ionicModal, $window) {
 
         $scope.pegaTags = function () {
             $http.get('http://app.captei.info/mobile/api-mobile/' + $rootScope.token + '/').success(function (data) {
@@ -151,6 +151,10 @@ angular.module('starter.controllers', [])
                         tags.push(tag);
                     });
                 });
+                console.log('quantidade de tags: '+tags.length);
+                if(tags.length == 1){
+                    $state.go('tab.addtag');
+                }
                 $rootScope.tags = tags;
             });
         };
@@ -159,6 +163,10 @@ angular.module('starter.controllers', [])
             $scope.pegaTags();
         } else {
             $scope.tags = $rootScope.tags;
+        }
+
+        if($rootScope.tags.length <= 1){
+            $state.go('tab.addtag');
         }
 
         $scope.resetaFiltro = function () {
@@ -218,7 +226,7 @@ angular.module('starter.controllers', [])
                     format: 'json'
                 }
             }).success(function (data) {
-                console.log('*****sucesso: ' + tag_val + ' - ' + order + " - " + dia_inicio + " - " + dia_fim + " - " + q);
+                console.log('*****sucesso: ' + $rootScope.tags + ' - '+ tag_val + ' - ' + order + " - " + dia_inicio + " - " + dia_fim + " - " + q);
                 $scope.alertas = $scope.alertas.concat(data.results);
                 $scope.next = data.next;
             });
@@ -318,6 +326,7 @@ angular.module('starter.controllers', [])
                 });
                 $scope.tags = tags;
                 $scope.perfil_key = data[0].key;
+                console.log('addTAG -  quantidade de tags: '+tags.length);
             });
             $http.get('http://app.captei.info/mobile/api-usuario/' + $rootScope.token + '/').success(function (data) {
                 $scope.quantidade_tag = data[0].quantidade_tag;
@@ -389,5 +398,9 @@ angular.module('starter.controllers', [])
             $window.localStorage.removeItem('token');
             $window.localStorage.removeItem('tag');
             $state.go('signin');
+        };
+        $scope.iniciarTutorial = function () {
+            $window.localStorage['didTutorial'] = false;
+            $state.go('intro');
         }
     });
