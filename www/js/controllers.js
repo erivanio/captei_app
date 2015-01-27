@@ -18,20 +18,20 @@ angular.module('starter.controllers', [])
 
         if ($window.localStorage['token'] != undefined) {
             $rootScope.token = $window.localStorage['token'];
-            $state.go('tab.listnews');
+            $state.go('tab.listnews', null, {reload: true});
         }
 
-        $scope.esqueceuSenha = function (email) {
-            $http.post('http://app.captei.info/mobile/esqueceu-a-senha/', {
-                email: email
-            }).success(function (data) {
-                console.log('deu certo: ' + data);
-                $scope.oModal2.hide();
-            }).error(function (data) {
-                console.log('deu errado: ' + data);
-                $scope.oModal2.hide();
-            });
-        };
+        //$scope.esqueceuSenha = function (email) {
+        //    $http.post('http://app.captei.info/mobile/esqueceu-a-senha/', {
+        //        email: email
+        //    }).success(function (data) {
+        //        console.log('deu certo: ' + data);
+        //        $scope.oModal2.hide();
+        //    }).error(function (data) {
+        //        console.log('deu errado: ' + data);
+        //        $scope.oModal2.hide();
+        //    });
+        //};
 
         $scope.cadastrar = function (user) {
             $http({
@@ -54,7 +54,12 @@ angular.module('starter.controllers', [])
                 }).success(function (data) {
                     $rootScope.token = data.token;
                     $scope.oModal1.hide();
-                    $state.go('intro');
+                    if(window.localStorage['didTutorial'] === "true") {
+                        console.log('Skip intro');
+                        $state.go('tab.listnews');
+                    }else{
+                        $state.go('intro');
+                    }
                 })
             });
         };
@@ -69,12 +74,13 @@ angular.module('starter.controllers', [])
             }).success(function (data) {
                 console.log('sucesso');
                 $rootScope.token = data.token;
-                if (user.remember == true) {
-                    $window.localStorage['token'] = data.token;
-                } else {
-                    $window.localStorage.removeItem('token');
+                $window.localStorage['token'] = data.token;
+                if(window.localStorage['didTutorial'] === "true") {
+                    console.log('Skip intro');
+                    $state.go('tab.listnews');
+                }else{
+                    $state.go('intro');
                 }
-                $state.go('intro');
             }).error(function (data) {
                 $scope.showAlert();
             });
@@ -116,16 +122,16 @@ angular.module('starter.controllers', [])
 
         // Called to navigate to the main app
         $scope.startApp = function () {
-            $state.go('tab.listnews');
             window.localStorage['didTutorial'] = true;
+            $state.go('tab.listnews');
         };
 
         //No this is silly
         // Check if the user already did the tutorial and skip it if so
-        if (window.localStorage['didTutorial'] === "true") {
-            console.log('Skip intro');
-            $scope.startApp();
-        }
+        //if (window.localStorage['didTutorial'] === "true") {
+        //    console.log('Skip intro');
+        //    $scope.startApp();
+        //}
 
         $scope.next = function () {
             $ionicSlideBoxDelegate.next();
@@ -142,8 +148,7 @@ angular.module('starter.controllers', [])
 
 
     .controller('AlertasCtrl', function ($scope, $state, $stateParams, $rootScope, $http, $timeout, $ionicModal, $window) {
-
-        $scope.pegaTags = function () {
+        if ($window.localStorage["tag_val"] == undefined ) {
             $http.get('http://app.captei.info/mobile/api-mobile/' + $rootScope.token + '/').success(function (data) {
                 var tags = [{"id": 0, "nome": "Todas"}];
                 angular.forEach(data, function (perfil) {
@@ -151,22 +156,14 @@ angular.module('starter.controllers', [])
                         tags.push(tag);
                     });
                 });
-                console.log('quantidade de tags: '+tags.length);
-                if(tags.length == 1){
+                $rootScope.tags = tags;
+                if(tags.length == 1) {
                     $state.go('tab.addtag');
                 }
-                $rootScope.tags = tags;
             });
-        };
-
-        if ($rootScope.tags == undefined) {
-            $scope.pegaTags();
-        } else {
-            $scope.tags = $rootScope.tags;
-        }
-
-        if($rootScope.tags.length <= 1){
-            $state.go('tab.addtag');
+        }else{
+            var root_tag_val = JSON.parse($window.localStorage["tag_val"]);
+            $rootScope.tags = root_tag_val;
         }
 
         $scope.resetaFiltro = function () {
@@ -226,7 +223,8 @@ angular.module('starter.controllers', [])
                     format: 'json'
                 }
             }).success(function (data) {
-                console.log('*****sucesso: ' + $rootScope.tags + ' - '+ tag_val + ' - ' + order + " - " + dia_inicio + " - " + dia_fim + " - " + q);
+                console.log('*****sucesso: ' + tag_val + ' - ' + order + " - " + dia_inicio + " - " + dia_fim + " - " + q);
+                console.log(root_tag_val);
                 $scope.alertas = $scope.alertas.concat(data.results);
                 $scope.next = data.next;
             });
@@ -314,7 +312,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('addtagCtrl', function ($scope, $ionicModal, $ionicLoading, $state, $rootScope, $http) {
+    .controller('addtagCtrl', function ($scope, $ionicModal, $ionicLoading, $window, $state, $rootScope, $http) {
 
         $scope.loadTags = function () {
             $http.get('http://app.captei.info/mobile/api-mobile/' + $rootScope.token + '/').success(function (data) {
@@ -381,7 +379,7 @@ angular.module('starter.controllers', [])
             });
             resultTags.unshift({"id": 0, "nome": "Todas"});
             console.log(resultTags);
-            $rootScope.tags = resultTags;
+            $window.localStorage['tag_val'] = JSON.stringify(resultTags);
             $state.go('tab.listnews', null, {reload: true});
         };
 
@@ -397,6 +395,7 @@ angular.module('starter.controllers', [])
             delete $rootScope.tags;
             $window.localStorage.removeItem('token');
             $window.localStorage.removeItem('tag');
+            $window.localStorage.removeItem('tag_val');
             $state.go('signin');
         };
         $scope.iniciarTutorial = function () {

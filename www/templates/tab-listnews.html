@@ -1,12 +1,12 @@
 <ion-view title="">
     <div class="bar bar-header bar-yellow">
         <div class="col col-33">
-            <a href=""><img src="img/logo.png" alt="">
+            <a href="#/tab/listnews"><img src="img/logo.png" alt="">
             </a>
         </div>
         <div class="col col-50">
             <label class="item item-input item-select select-tag-header">
-                <select id="tagSelect" ng-model="tagSelecionada" ng-options="tag.id as tag.nome for tag in tags" ng-change="salvaFiltro();alertLista();">
+                <select id="tagSelect" ng-model="tagSelecionada" ng-options="tag.id as tag.nome for tag in $root.tags" ng-change="salvaFiltro();alertLista();">
                 </select>
             </label>
         </div>
