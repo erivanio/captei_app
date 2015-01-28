@@ -6,7 +6,8 @@
         </div>
         <div class="col col-50">
             <label class="item item-input item-select select-tag-header">
-                <select id="tagSelect" ng-model="tagSelecionada" ng-options="tag.id as tag.nome for tag in $root.tags" ng-change="salvaFiltro();alertLista();">
+                <select id="tagSelect" ng-model="tagSelecionada" ng-change="salvaFiltro();alertLista();">
+                <option ng-repeat="tag in $root.tags" value="{{tag.id}}" ng-selected="tag.id==defaultTag">{{tag.nome}}</option>
                 </select>
             </label>
         </div>
@@ -50,17 +51,17 @@
             <div class="list">
               <label class="item item-input">
                   <span class="input-label">Buscar por:</span>
-                  <input type="text" id="q">
+                  <input type="text" ng-model="q" id="q">
               </label>
 
               <label class="item item-input">
                   <span class="input-label">Data inicial</span>
-                  <input type="date" id="data-inicio">
+                  <input type="date" id="data-inicio" ng-model="data_inicio">
               </label>
 
               <label class="item item-input">
                   <span class="input-label">Data final</span>
-                  <input type="date" id="data-fim">
+                  <input type="date" id="data-fim" ng-model="data_fim">
               </label>
               
               <label class="item item-input item-select">
@@ -107,7 +108,7 @@
               <!--</label>-->
 
             </div>
-        <button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="alertLista();modal.hide();">Aplicar</button>
+        <button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="alertLista();$root.location.reload();modal.hide();">Aplicar</button>
         <button class="button button-block button-energized button-icon-left ion-checkmark" ng-click="resetaFiltro();modal.hide();">Limpar Filtros</button>
         </ion-content>
     </ion-modal-view>

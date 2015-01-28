@@ -190,15 +190,18 @@ angular.module('starter.controllers', [])
             if (!isNaN($window.localStorage['tag'])) {
                 if ($window.localStorage['tag'] != 0) {
                     tag_val.push($window.localStorage['tag']);
+                    $scope.defaultTag = $window.localStorage['tag'];
                 } else {
                     angular.forEach($rootScope.tags, function (tag) {
                         tag_val.push(tag.id);
                     });
+                    $scope.defaultTag = '';
                 }
             } else {
                 angular.forEach($rootScope.tags, function (tag) {
                     tag_val.push(tag.id);
                 });
+                $scope.defaultTag = '';
             }
             $scope.alertas = [];
             if (order == undefined || order == '') {
@@ -223,8 +226,7 @@ angular.module('starter.controllers', [])
                     format: 'json'
                 }
             }).success(function (data) {
-                console.log('*****sucesso: ' + tag_val + ' - ' + order + " - " + dia_inicio + " - " + dia_fim + " - " + q);
-                console.log(root_tag_val);
+                console.log('*****sucesso: ' + tag_val + ' - ' + order + " - " + dia_inicio + " - " + dia_fim + " - " + q + " - " + classificacao);
                 $scope.alertas = $scope.alertas.concat(data.results);
                 $scope.next = data.next;
             });

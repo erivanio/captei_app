@@ -14,7 +14,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
     }
 })
 
-.run(function($ionicPlatform, $rootScope) {
+.run(function($ionicPlatform, $rootScope, $location) {
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -26,6 +26,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
             StatusBar.styleDefault();
         }
     });
+    $rootScope.location = $location;
 })
 
 .config(['$httpProvider', function($httpProvider) {
