@@ -380,8 +380,8 @@ angular.module('starter.controllers', [])
                 }
             });
             resultTags.unshift({"id": 0, "nome": "Todas"});
-            console.log(resultTags);
             $window.localStorage['tag_val'] = JSON.stringify(resultTags);
+            $window.localStorage['tag'] = 0;
             $state.go('tab.listnews', null, {reload: true});
         };
 
