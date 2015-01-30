@@ -2,10 +2,10 @@
 <widget id="com.ionicframework.captei898814" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Captei</name>
     <description>
-        An Ionic Framework and Cordova project.
+        Ferramenta de clipping
     </description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">
-        Ionic Framework Team
+    <author email="" href="http://agencia128bits.com/">
+        Agência 128Bits
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -19,6 +19,7 @@
         <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
 
+    <icon src="logo.png" />
 
     <!-- Icons APP -->
     <platform name="ios">
@@ -63,26 +64,26 @@
 
 
     <platform name="android">
-        <icon src="www/img/android/icon/ldpi.png" density="ldpi" />
-        <icon src="www/img/android/icon/mdpi.png" density="mdpi" />
-        <icon src="www/img/android/icon/hdpi.png" density="hdpi" />
-        <icon src="www/img/android/icon/xhdpi.png" density="xhdpi" />
-        <icon src="www/img/android/icon/xxhdpi.png" density="xxhdpi" />
-        <icon src="www/img/android/icon/xxxhdpi.png" density="xxxhdpi" />
+        <icon src="www/res/icons/android/ldpi.png" density="ldpi" />
+        <icon src="www/res/icons/android/mdpi.png" density="mdpi" />
+        <icon src="www/res/icons/android/hdpi.png" density="hdpi" />
+        <icon src="www/res/icons/android/xhdpi.png" density="xhdpi" />
+        <icon src="www/res/icons/android/xxhdpi.png" density="xxhdpi" />
+        <icon src="www/res/icons/android/xxxhdpi.png" density="xxxhdpi" />
 
-        <splash src="www/img/android/splash/splash-land-hdpi.png" density="land-hdpi" />
-        <splash src="www/img/android/splash/splash-land-ldpi.png" density="land-ldpi" />
-        <splash src="www/img/android/splash/splash-land-mdpi.png" density="land-mdpi" />
-        <splash src="www/img/android/splash/splash-land-xhdpi.png" density="land-xhdpi" />
-        <splash src="www/img/android/splash/splash-land-xxhdpi.png" density="land-xxhdpi" />
-        <splash src="www/img/android/splash/splash-land-xxxhdpi.png" density="land-xxxhdpi" />
+        <splash src="www/res/splashscreen/android/splash-land-hdpi.png" density="land-hdpi" />
+        <splash src="www/res/splashscreen/android/splash-land-ldpi.png" density="land-ldpi" />
+        <splash src="www/res/splashscreen/android/splash-land-mdpi.png" density="land-mdpi" />
+        <splash src="www/res/splashscreen/android/splash-land-xhdpi.png" density="land-xhdpi" />
+        <splash src="www/res/splashscreen/android/splash-land-xxhdpi.png" density="land-xxhdpi" />
+        <splash src="www/res/splashscreen/android/splash-land-xxxhdpi.png" density="land-xxxhdpi" />
 
-        <splash src="www/img/android/splash/splash-port-hdpi.png" density="port-hdpi" />
-        <splash src="www/img/android/splash/splash-port-ldpi.png" density="port-ldpi" />
-        <splash src="www/img/android/splash/splash-port-mdpi.png" density="port-mdpi" />
-        <splash src="www/img/android/splash/splash-port-xhdpi.png" density="port-xhdpi" />
-        <splash src="www/img/android/splash/splash-port-xxhdpi.png" density="port-xxhdpi" />
-        <splash src="www/img/android/splash/splash-port-xxxhdpi.png" density="port-xxxhdpi" />
+        <splash src="www/res/splashscreen/android/splash-port-hdpi.png" density="port-hdpi" />
+        <splash src="www/res/splashscreen/android/splash-port-ldpi.png" density="port-ldpi" />
+        <splash src="www/res/splashscreen/android/splash-port-mdpi.png" density="port-mdpi" />
+        <splash src="www/res/splashscreen/android/splash-port-xhdpi.png" density="port-xhdpi" />
+        <splash src="www/res/splashscreen/android/splash-port-xxhdpi.png" density="port-xxhdpi" />
+        <splash src="www/res/splashscreen/android/splash-port-xxxhdpi.png" density="port-xxxhdpi" />
     </platform>
 
 
