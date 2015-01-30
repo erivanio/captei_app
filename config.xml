@@ -48,7 +48,19 @@
         <!-- iPad Spotlight and Settings Icon -->
         <icon src="www/img/ios/icon/appicon-50.png" width="50" height="50" />
         <icon src="www/img/ios/icon/appicon-50@2x.png" width="100" height="100" />
+
+        <splash src="www/img/ios/splash/Default.png" width="320" height="480" />
+        <splash src="www/img/ios/splash/Default@2x.png" width="640" height="960" />
+        <splash src="www/img/ios/splash/Default-Portrait.png" width="768" height="1024" />
+        <splash src="www/img/ios/splash/Default-Portrait@2x.png" width="1536" height="2048" />
+        <splash src="www/img/ios/splash/Default-Landscape.png" width="1024" height="768" />
+        <splash src="www/img/ios/splash/Default-Landscape@2x.png" width="2048" height="1536" />
+        <splash src="www/img/ios/splash/Default-568h@2x.png" width="640" height="1136" />
+        <splash src="www/img/ios/splash/Default-667h.png" width="750" height="1334" />
+        <splash src="www/img/ios/splash/Default-736h.png" width="1242" height="2208" />
+        <splash src="www/img/ios/splash/Default-Landscape-736h.png" width="2208" height="1242" />
     </platform>
+
 
     <platform name="android">
         <icon src="www/img/android/icon/ldpi.png" density="ldpi" />
@@ -57,15 +69,7 @@
         <icon src="www/img/android/icon/xhdpi.png" density="xhdpi" />
         <icon src="www/img/android/icon/xxhdpi.png" density="xxhdpi" />
         <icon src="www/img/android/icon/xxxhdpi.png" density="xxxhdpi" />
-    </platform>
 
-    <!-- End Icons APP -->
-
-
-    <!-- Splash APP -->
-
-    <platform name="android">
-        <!-- you can use any density that exists in the Android project -->
         <splash src="www/img/android/splash/splash-land-hdpi.png" density="land-hdpi" />
         <splash src="www/img/android/splash/splash-land-ldpi.png" density="land-ldpi" />
         <splash src="www/img/android/splash/splash-land-mdpi.png" density="land-mdpi" />
@@ -81,20 +85,6 @@
         <splash src="www/img/android/splash/splash-port-xxxhdpi.png" density="port-xxxhdpi" />
     </platform>
 
-    <platform name="ios">
-        <!-- images are determined by width and height. The following are supported -->
-        <splash src="www/img/ios/splash/Default.png" width="320" height="480" />
-        <splash src="www/img/ios/splash/Default@2x.png" width="640" height="960" />
-        <splash src="www/img/ios/splash/Default-Portrait.png" width="768" height="1024" />
-        <splash src="www/img/ios/splash/Default-Portrait@2x.png" width="1536" height="2048" />
-        <splash src="www/img/ios/splash/Default-Landscape.png" width="1024" height="768" />
-        <splash src="www/img/ios/splash/Default-Landscape@2x.png" width="2048" height="1536" />
-        <splash src="www/img/ios/splash/Default-568h@2x.png" width="640" height="1136" />
-        <splash src="www/img/ios/splash/Default-667h.png" width="750" height="1334" />
-        <splash src="www/img/ios/splash/Default-736h.png" width="1242" height="2208" />
-        <splash src="www/img/ios/splash/Default-Landscape-736h.png" width="2208" height="1242" />
-    </platform>
 
-    <!-- End Splash APP -->
 
 </widget>
