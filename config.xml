@@ -71,19 +71,19 @@
         <icon src="www/res/icons/android/xxhdpi.png" density="xxhdpi" />
         <icon src="www/res/icons/android/xxxhdpi.png" density="xxxhdpi" />
 
-        <splash src="www/res/splashscreen/android/splash-land-hdpi.png" density="land-hdpi" />
-        <splash src="www/res/splashscreen/android/splash-land-ldpi.png" density="land-ldpi" />
-        <splash src="www/res/splashscreen/android/splash-land-mdpi.png" density="land-mdpi" />
-        <splash src="www/res/splashscreen/android/splash-land-xhdpi.png" density="land-xhdpi" />
-        <splash src="www/res/splashscreen/android/splash-land-xxhdpi.png" density="land-xxhdpi" />
-        <splash src="www/res/splashscreen/android/splash-land-xxxhdpi.png" density="land-xxxhdpi" />
+        <splash src="www/res/screens/android/splash-land-hdpi.png" density="land-hdpi" />
+        <splash src="www/res/screens/android/splash-land-ldpi.png" density="land-ldpi" />
+        <splash src="www/res/screens/android/splash-land-mdpi.png" density="land-mdpi" />
+        <splash src="www/res/screens/android/splash-land-xhdpi.png" density="land-xhdpi" />
+        <splash src="www/res/screens/android/splash-land-xxhdpi.png" density="land-xxhdpi" />
+        <splash src="www/res/screens/android/splash-land-xxxhdpi.png" density="land-xxxhdpi" />
 
-        <splash src="www/res/splashscreen/android/splash-port-hdpi.png" density="port-hdpi" />
-        <splash src="www/res/splashscreen/android/splash-port-ldpi.png" density="port-ldpi" />
-        <splash src="www/res/splashscreen/android/splash-port-mdpi.png" density="port-mdpi" />
-        <splash src="www/res/splashscreen/android/splash-port-xhdpi.png" density="port-xhdpi" />
-        <splash src="www/res/splashscreen/android/splash-port-xxhdpi.png" density="port-xxhdpi" />
-        <splash src="www/res/splashscreen/android/splash-port-xxxhdpi.png" density="port-xxxhdpi" />
+        <splash src="www/res/screens/android/splash-port-hdpi.png" density="port-hdpi" />
+        <splash src="www/res/screens/android/splash-port-ldpi.png" density="port-ldpi" />
+        <splash src="www/res/screens/android/splash-port-mdpi.png" density="port-mdpi" />
+        <splash src="www/res/screens/android/splash-port-xhdpi.png" density="port-xhdpi" />
+        <splash src="www/res/screens/android/splash-port-xxhdpi.png" density="port-xxhdpi" />
+        <splash src="www/res/screens/android/splash-port-xxxhdpi.png" density="port-xxxhdpi" />
     </platform>
 
 
