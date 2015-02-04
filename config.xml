@@ -26,9 +26,9 @@
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
-    <gap:plugin name="com.google.playservices" />
     <gap:plugin name="com.ionic.keyboard" />
     <gap:plugin name="com.rjfun.cordova.plugin.admob" />
+    <gap:plugin name="com.google.admobsdk" />
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
 
     <icon src="logo.png" />
