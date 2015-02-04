@@ -263,7 +263,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('InternaCtrl', function ($scope, $http, $stateParams, $location, $rootScope, $state) {
+    .controller('InternaCtrl', function ($scope, $http, $stateParams, $location, $rootScope, $state, $cordovaSocialSharing) {
         if ($rootScope.token == undefined) {
             $location.path('login');
         }
@@ -278,6 +278,10 @@ angular.module('starter.controllers', [])
             $scope.alerta = data.results[0];
         });
 
+        $scope.compartilhar = function (titulo, link) {
+            $cordovaSocialSharing.share(titulo, titulo, null, link);
+            console.log(titulo + ' - ' + subtitulo + ' - ' +link);
+        };
         $scope.updateAlerta = function (classificacao) {
             $http({
                 method: 'PUT',
@@ -370,7 +374,6 @@ angular.module('starter.controllers', [])
             });
             $scope.modal.hide();
         };
-
 
         $scope.selecionarTags = function (tags) {
             var resultTags = [];

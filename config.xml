@@ -19,72 +19,80 @@
         <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
 
+    <cdv:platform name="ios"/>
+    <cdv:platform name="android"/>
+
+    <cdv:plugin name="org.apache.cordova.console" />
+    <cdv:plugin name="org.apache.cordova.device" />
+    <cdv:plugin name="org.apache.cordova.inappbrowser" />
+    <cdv:plugin name="org.apache.cordova.splashscreen" />
+    <cdv:plugin name="com.google.cordova.admob" />
+    <cdv:plugin name="com.google.playservices" />
+    <cdv:plugin name="com.ionic.keyboard" />
+    <cdv:plugin name="com.rjfun.cordova.extension" />
+    <cdv:plugin name="nl.x-services.plugins.socialsharing" />
+
     <icon src="logo.png" />
 
     <!-- Icons APP -->
-    <platform name="ios">
         <!-- iOS 8.0+ -->
         <!-- iPhone 6 Plus  -->
-        <icon src="www/img/ios/icon/appicon-60@3x.png" width="180" height="180" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-60@3x.png" width="180" height="180" />
         <!-- iOS 7.0+ -->
         <!-- iPhone / iPod Touch  -->
-        <icon src="www/img/ios/icon/appicon-60.png" width="60" height="60" />
-        <icon src="www/img/ios/icon/appicon-60@2x.png" width="120" height="120" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-60.png" width="60" height="60" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-60@2x.png" width="120" height="120" />
         <!-- iPad -->
-        <icon src="www/img/ios/icon/appicon-76.png" width="76" height="76" />
-        <icon src="www/img/ios/icon/appicon-76@2x.png" width="152" height="152" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-76.png" width="76" height="76" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-76@2x.png" width="152" height="152" />
         <!-- iOS 6.1 -->
         <!-- Spotlight Icon -->
-        <icon src="www/img/ios/icon/appicon-40.png" width="40" height="40" />
-        <icon src="www/img/ios/icon/appicon-40@2x.png" width="80" height="80" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-40.png" width="40" height="40" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-40@2x.png" width="80" height="80" />
         <!-- iPhone / iPod Touch -->
-        <icon src="www/img/ios/icon/appicon.png" width="57" height="57" />
-        <icon src="www/img/ios/icon/appicon@2x.png" width="114" height="114" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon.png" width="57" height="57" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon@2x.png" width="114" height="114" />
         <!-- iPad -->
-        <icon src="www/img/ios/icon/appicon-72.png" width="72" height="72" />
-        <icon src="www/img/ios/icon/appicon-72@2x.png" width="144" height="144" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-72.png" width="72" height="72" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-72@2x.png" width="144" height="144" />
         <!-- iPhone Spotlight and Settings Icon -->
-        <icon src="www/img/ios/icon/appicon-small.png" width="29" height="29" />
-        <icon src="www/img/ios/icon/appicon-small@2x.png" width="58" height="58" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-small.png" width="29" height="29" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-small@2x.png" width="58" height="58" />
         <!-- iPad Spotlight and Settings Icon -->
-        <icon src="www/img/ios/icon/appicon-50.png" width="50" height="50" />
-        <icon src="www/img/ios/icon/appicon-50@2x.png" width="100" height="100" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-50.png" width="50" height="50" />
+        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-50@2x.png" width="100" height="100" />
 
-        <splash src="www/img/ios/splash/Default.png" width="320" height="480" />
-        <splash src="www/img/ios/splash/Default@2x.png" width="640" height="960" />
-        <splash src="www/img/ios/splash/Default-Portrait.png" width="768" height="1024" />
-        <splash src="www/img/ios/splash/Default-Portrait@2x.png" width="1536" height="2048" />
-        <splash src="www/img/ios/splash/Default-Landscape.png" width="1024" height="768" />
-        <splash src="www/img/ios/splash/Default-Landscape@2x.png" width="2048" height="1536" />
-        <splash src="www/img/ios/splash/Default-568h@2x.png" width="640" height="1136" />
-        <splash src="www/img/ios/splash/Default-667h.png" width="750" height="1334" />
-        <splash src="www/img/ios/splash/Default-736h.png" width="1242" height="2208" />
-        <splash src="www/img/ios/splash/Default-Landscape-736h.png" width="2208" height="1242" />
-    </platform>
+        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default.png" width="320" height="480" />
+        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default@2x.png" width="640" height="960" />
+        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-Portrait.png" width="768" height="1024" />
+        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-Portrait@2x.png" width="1536" height="2048" />
+        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-Landscape.png" width="1024" height="768" />
+        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-Landscape@2x.png" width="2048" height="1536" />
+        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-568h@2x.png" width="640" height="1136" />
+        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-667h.png" width="750" height="1334" />
+        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-736h.png" width="1242" height="2208" />
+        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-Landscape-736h.png" width="2208" height="1242" />
 
+        <icon cdv:platform="android" src="www/res/icons/android/ldpi.png" cdv:density="ldpi" />
+        <icon cdv:platform="android" src="www/res/icons/android/mdpi.png" cdv:density="mdpi" />
+        <icon cdv:platform="android" src="www/res/icons/android/hdpi.png" cdv:density="hdpi" />
+        <icon cdv:platform="android" src="www/res/icons/android/xhdpi.png" cdv:density="xhdpi" />
+        <icon cdv:platform="android" src="www/res/icons/android/xxhdpi.png" cdv:density="xxhdpi" />
+        <icon cdv:platform="android" src="www/res/icons/android/xxxhdpi.png" cdv:density="xxxhdpi" />
 
-    <platform name="android">
-        <icon src="www/res/icons/android/ldpi.png" density="ldpi" />
-        <icon src="www/res/icons/android/mdpi.png" density="mdpi" />
-        <icon src="www/res/icons/android/hdpi.png" density="hdpi" />
-        <icon src="www/res/icons/android/xhdpi.png" density="xhdpi" />
-        <icon src="www/res/icons/android/xxhdpi.png" density="xxhdpi" />
-        <icon src="www/res/icons/android/xxxhdpi.png" density="xxxhdpi" />
+        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-land-hdpi.png" cdv:density="land-hdpi" />
+        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-land-ldpi.png" cdv:density="land-ldpi" />
+        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-land-mdpi.png" cdv:density="land-mdpi" />
+        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-land-xhdpi.png" cdv:density="land-xhdpi" />
+        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-land-xxhdpi.png" cdv:density="land-xxhdpi" />
+        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-land-xxxhdpi.png" cdv:density="land-xxxhdpi" />
 
-        <splash src="www/res/screens/android/splash-land-hdpi.png" density="land-hdpi" />
-        <splash src="www/res/screens/android/splash-land-ldpi.png" density="land-ldpi" />
-        <splash src="www/res/screens/android/splash-land-mdpi.png" density="land-mdpi" />
-        <splash src="www/res/screens/android/splash-land-xhdpi.png" density="land-xhdpi" />
-        <splash src="www/res/screens/android/splash-land-xxhdpi.png" density="land-xxhdpi" />
-        <splash src="www/res/screens/android/splash-land-xxxhdpi.png" density="land-xxxhdpi" />
-
-        <splash src="www/res/screens/android/splash-port-hdpi.png" density="port-hdpi" />
-        <splash src="www/res/screens/android/splash-port-ldpi.png" density="port-ldpi" />
-        <splash src="www/res/screens/android/splash-port-mdpi.png" density="port-mdpi" />
-        <splash src="www/res/screens/android/splash-port-xhdpi.png" density="port-xhdpi" />
-        <splash src="www/res/screens/android/splash-port-xxhdpi.png" density="port-xxhdpi" />
-        <splash src="www/res/screens/android/splash-port-xxxhdpi.png" density="port-xxxhdpi" />
-    </platform>
+        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-port-hdpi.png" cdv:density="port-hdpi" />
+        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-port-ldpi.png" cdv:density="port-ldpi" />
+        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-port-mdpi.png" cdv:density="port-mdpi" />
+        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-port-xhdpi.png" cdv:density="port-xhdpi" />
+        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-port-xxhdpi.png" cdv:density="port-xxhdpi" />
+        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-port-xxxhdpi.png" cdv:density="port-xxxhdpi" />
 
 
 
