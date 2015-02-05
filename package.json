@@ -16,6 +16,8 @@
   },
   "cordovaPlugins": [
     "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
-    "com.rjfun.cordova.plugin.admob"
+    "com.rjfun.cordova.plugin.admob",
+    "com.google.cordova.admob",
+    "nl.x-services.plugins.socialsharing"
   ]
 }

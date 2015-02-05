@@ -278,10 +278,10 @@ angular.module('starter.controllers', [])
             $scope.alerta = data.results[0];
         });
 
-        $scope.compartilhar = function (titulo, link) {
-            $cordovaSocialSharing.share(titulo, titulo, null, link);
-            console.log(titulo + ' - ' + subtitulo + ' - ' +link);
-        };
+        //$scope.compartilhar = function (titulo, link) {
+        //    $cordovaSocialSharing.share(titulo, titulo, null, link);
+        //    console.log(titulo + ' - ' + subtitulo + ' - ' +link);
+        //};
         $scope.updateAlerta = function (classificacao) {
             $http({
                 method: 'PUT',
