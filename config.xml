@@ -17,35 +17,6 @@
     <preference name="SplashScreenDelay" value="3000" />
 
 
-    <platform name="ios">
-        <feature name="StatusBar">
-            <param name="ios-package" value="gapStatusBar" onload="true" />
-        </feature>
-        <feature name="SocialSharing">
-            <param name="ios-package" value="SocialSharing"/>
-            <param name="onload" value="true" />
-        </feature>
-
-        <header-file src="src/ios/SocialSharing.h"/>
-        <source-file src="src/ios/SocialSharing.m"/>
-
-        <framework src="Social.framework" weak="true" />
-        <framework src="MessageUI.framework" weak="true" />
-    </platform>
-
-    <platform name="android">
-
-        <feature name="SocialSharing">
-            <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
-        </feature>
-
-        <config-file target="AndroidManifest.xml" parent="/manifest">
-            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18"/>
-        </config-file>
-
-        <source-file src="src/android/nl/xservices/plugins/SocialSharing.java" target-dir="src/nl/xservices/plugins"/>
-    </platform>
-
     <gap:platform name="ios"/>
     <gap:platform name="android"/>
 
@@ -55,7 +26,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" version="0.1.0" />
     <gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io"/>
     <gap:plugin name="com.ionic.keyboard" />
-    <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.0" />
+    <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
 
     <icon src="logo.png" />
 
