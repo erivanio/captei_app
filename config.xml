@@ -18,6 +18,12 @@
     <feature name="StatusBar">
         <param name="ios-package" value="gapStatusBar" onload="true" />
     </feature>
+    <feature name="SocialSharing">
+      <param name="ios-package" value="SocialSharing" />
+    </feature>
+    <feature name="SocialSharing">
+      <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+    </feature>
 
     <gap:platform name="ios"/>
     <gap:platform name="android"/>
@@ -28,69 +34,69 @@
     <gap:plugin name="org.apache.cordova.splashscreen" version="0.1.0" />
     <gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io"/>
     <gap:plugin name="com.ionic.keyboard" />
-    <gap:plugin name="nl.x-services.plugins.socialsharing" />
+    <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
 
     <icon src="logo.png" />
 
     <!-- Icons APP -->
-        <!-- iOS 8.0+ -->
-        <!-- iPhone 6 Plus  -->
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon-60@3x.png" width="180" height="180" />
-        <!-- iOS 7.0+ -->
-        <!-- iPhone / iPod Touch  -->
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon-60.png" width="60" height="60" />
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon-60@2x.png" width="120" height="120" />
-        <!-- iPad -->
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon-76.png" width="76" height="76" />
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon-76@2x.png" width="152" height="152" />
-        <!-- iOS 6.1 -->
-        <!-- Spotlight Icon -->
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon-40.png" width="40" height="40" />
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon-40@2x.png" width="80" height="80" />
-        <!-- iPhone / iPod Touch -->
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon.png" width="57" height="57" />
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon@2x.png" width="114" height="114" />
-        <!-- iPad -->
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon-72.png" width="72" height="72" />
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon-72@2x.png" width="144" height="144" />
-        <!-- iPhone Spotlight and Settings Icon -->
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon-small.png" width="29" height="29" />
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon-small@2x.png" width="58" height="58" />
-        <!-- iPad Spotlight and Settings Icon -->
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon-50.png" width="50" height="50" />
-        <icon gap:platform="ios" src="www/img/ios/icon/appicon-50@2x.png" width="100" height="100" />
+    <!-- iOS 8.0+ -->
+    <!-- iPhone 6 Plus  -->
+    <icon gap:platform="ios" src="img/ios/icon/appicon-60@3x.png" width="180" height="180" />
+    <!-- iOS 7.0+ -->
+    <!-- iPhone / iPod Touch  -->
+    <icon gap:platform="ios" src="img/ios/icon/appicon-60.png" width="60" height="60" />
+    <icon gap:platform="ios" src="img/ios/icon/appicon-60@2x.png" width="120" height="120" />
+    <!-- iPad -->
+    <icon gap:platform="ios" src="img/ios/icon/appicon-76.png" width="76" height="76" />
+    <icon gap:platform="ios" src="img/ios/icon/appicon-76@2x.png" width="152" height="152" />
+    <!-- iOS 6.1 -->
+    <!-- Spotlight Icon -->
+    <icon gap:platform="ios" src="img/ios/icon/appicon-40.png" width="40" height="40" />
+    <icon gap:platform="ios" src="img/ios/icon/appicon-40@2x.png" width="80" height="80" />
+    <!-- iPhone / iPod Touch -->
+    <icon gap:platform="ios" src="img/ios/icon/appicon.png" width="57" height="57" />
+    <icon gap:platform="ios" src="img/ios/icon/appicon@2x.png" width="114" height="114" />
+    <!-- iPad -->
+    <icon gap:platform="ios" src="img/ios/icon/appicon-72.png" width="72" height="72" />
+    <icon gap:platform="ios" src="img/ios/icon/appicon-72@2x.png" width="144" height="144" />
+    <!-- iPhone Spotlight and Settings Icon -->
+    <icon gap:platform="ios" src="img/ios/icon/appicon-small.png" width="29" height="29" />
+    <icon gap:platform="ios" src="img/ios/icon/appicon-small@2x.png" width="58" height="58" />
+    <!-- iPad Spotlight and Settings Icon -->
+    <icon gap:platform="ios" src="img/ios/icon/appicon-50.png" width="50" height="50" />
+    <icon gap:platform="ios" src="img/ios/icon/appicon-50@2x.png" width="100" height="100" />
 
-        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default.png" width="320" height="480" />
-        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default@2x.png" width="640" height="960" />
-        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-Portrait.png" width="768" height="1024" />
-        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-Portrait@2x.png" width="1536" height="2048" />
-        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-Landscape.png" width="1024" height="768" />
-        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-Landscape@2x.png" width="2048" height="1536" />
-        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-568h@2x.png" width="640" height="1136" />
-        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-667h.png" width="750" height="1334" />
-        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-736h.png" width="1242" height="2208" />
-        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-Landscape-736h.png" width="2208" height="1242" />
+    <gap:splash gap:platform="ios" src="img/ios/splash/Default.png" width="320" height="480" />
+    <gap:splash gap:platform="ios" src="img/ios/splash/Default@2x.png" width="640" height="960" />
+    <gap:splash gap:platform="ios" src="img/ios/splash/Default-Portrait.png" width="768" height="1024" />
+    <gap:splash gap:platform="ios" src="img/ios/splash/Default-Portrait@2x.png" width="1536" height="2048" />
+    <gap:splash gap:platform="ios" src="img/ios/splash/Default-Landscape.png" width="1024" height="768" />
+    <gap:splash gap:platform="ios" src="img/ios/splash/Default-Landscape@2x.png" width="2048" height="1536" />
+    <gap:splash gap:platform="ios" src="img/ios/splash/Default-568h@2x.png" width="640" height="1136" />
+    <gap:splash gap:platform="ios" src="img/ios/splash/Default-667h.png" width="750" height="1334" />
+    <gap:splash gap:platform="ios" src="img/ios/splash/Default-736h.png" width="1242" height="2208" />
+    <gap:splash gap:platform="ios" src="img/ios/splash/Default-Landscape-736h.png" width="2208" height="1242" />
 
-        <icon gap:platform="android" src="www/res/icons/android/ldpi.png" gap:density="ldpi" />
-        <icon gap:platform="android" src="www/res/icons/android/mdpi.png" gap:density="mdpi" />
-        <icon gap:platform="android" src="www/res/icons/android/hdpi.png" gap:density="hdpi" />
-        <icon gap:platform="android" src="www/res/icons/android/xhdpi.png" gap:density="xhdpi" />
-        <icon gap:platform="android" src="www/res/icons/android/xxhdpi.png" gap:density="xxhdpi" />
-        <icon gap:platform="android" src="www/res/icons/android/xxxhdpi.png" gap:density="xxxhdpi" />
+    <icon gap:platform="android" src="res/icons/android/ldpi.png" gap:density="ldpi" />
+    <icon gap:platform="android" src="res/icons/android/mdpi.png" gap:density="mdpi" />
+    <icon gap:platform="android" src="res/icons/android/hdpi.png" gap:density="hdpi" />
+    <icon gap:platform="android" src="res/icons/android/xhdpi.png" gap:density="xhdpi" />
+    <icon gap:platform="android" src="res/icons/android/xxhdpi.png" gap:density="xxhdpi" />
+    <icon gap:platform="android" src="res/icons/android/xxxhdpi.png" gap:density="xxxhdpi" />
 
-        <gap:splash gap:platform="android" src="www/res/screens/android/splash-land-hdpi.png" gap:density="land-hdpi" />
-        <gap:splash gap:platform="android" src="www/res/screens/android/splash-land-ldpi.png" gap:density="land-ldpi" />
-        <gap:splash gap:platform="android" src="www/res/screens/android/splash-land-mdpi.png" gap:density="land-mdpi" />
-        <gap:splash gap:platform="android" src="www/res/screens/android/splash-land-xhdpi.png" gap:density="land-xhdpi" />
-        <gap:splash gap:platform="android" src="www/res/screens/android/splash-land-xxhdpi.png" gap:density="land-xxhdpi" />
-        <gap:splash gap:platform="android" src="www/res/screens/android/splash-land-xxxhdpi.png" gap:density="land-xxxhdpi" />
+    <gap:splash gap:platform="android" src="res/screens/android/splash-land-hdpi.png" gap:density="land-hdpi" />
+    <gap:splash gap:platform="android" src="res/screens/android/splash-land-ldpi.png" gap:density="land-ldpi" />
+    <gap:splash gap:platform="android" src="res/screens/android/splash-land-mdpi.png" gap:density="land-mdpi" />
+    <gap:splash gap:platform="android" src="res/screens/android/splash-land-xhdpi.png" gap:density="land-xhdpi" />
+    <gap:splash gap:platform="android" src="res/screens/android/splash-land-xxhdpi.png" gap:density="land-xxhdpi" />
+    <gap:splash gap:platform="android" src="res/screens/android/splash-land-xxxhdpi.png" gap:density="land-xxxhdpi" />
 
-        <gap:splash gap:platform="android" src="www/res/screens/android/splash-port-hdpi.png" gap:density="port-hdpi" />
-        <gap:splash gap:platform="android" src="www/res/screens/android/splash-port-ldpi.png" gap:density="port-ldpi" />
-        <gap:splash gap:platform="android" src="www/res/screens/android/splash-port-mdpi.png" gap:density="port-mdpi" />
-        <gap:splash gap:platform="android" src="www/res/screens/android/splash-port-xhdpi.png" gap:density="port-xhdpi" />
-        <gap:splash gap:platform="android" src="www/res/screens/android/splash-port-xxhdpi.png" gap:density="port-xxhdpi" />
-        <gap:splash gap:platform="android" src="www/res/screens/android/splash-port-xxxhdpi.png" gap:density="port-xxxhdpi" />
+    <gap:splash gap:platform="android" src="res/screens/android/splash-port-hdpi.png" gap:density="port-hdpi" />
+    <gap:splash gap:platform="android" src="res/screens/android/splash-port-ldpi.png" gap:density="port-ldpi" />
+    <gap:splash gap:platform="android" src="res/screens/android/splash-port-mdpi.png" gap:density="port-mdpi" />
+    <gap:splash gap:platform="android" src="res/screens/android/splash-port-xhdpi.png" gap:density="port-xhdpi" />
+    <gap:splash gap:platform="android" src="res/screens/android/splash-port-xxhdpi.png" gap:density="port-xxhdpi" />
+    <gap:splash gap:platform="android" src="res/screens/android/splash-port-xxxhdpi.png" gap:density="port-xxxhdpi" />
 
 
 
