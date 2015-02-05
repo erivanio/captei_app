@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<widget id="com.ionicframework.captei898814" version="0.0.1" xmlns="http://www.w3.org/ns/widgets"  xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ionicframework.captei898814" version="0.0.1" xmlns="http://www.w3.org/ns/widgets"  xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Captei</name>
     <description>
         Ferramenta de clipping
@@ -16,80 +16,81 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <feature name="StatusBar">
-        <param name="ios-package" value="cdvStatusBar" onload="true" />
+        <param name="ios-package" value="gapStatusBar" onload="true" />
     </feature>
 
-    <cdv:platform name="ios"/>
-    <cdv:platform name="android"/>
+    <gap:platform name="ios"/>
+    <gap:platform name="android"/>
 
-    <cdv:plugin name="org.apache.cordova.console" />
-    <cdv:plugin name="org.apache.cordova.device" />
-    <cdv:plugin name="org.apache.cordova.inappbrowser" />
-    <cdv:plugin name="org.apache.cordova.splashscreen" />
-    <cdv:plugin name="com.ionic.keyboard" />
-    <cdv:plugin name="nl.x-services.plugins.socialsharing" />
+    <gap:plugin name="org.apache.cordova.console" />
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="org.apache.cordova.splashscreen" version="0.1.0" />
+    <gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io"/>
+    <gap:plugin name="com.ionic.keyboard" />
+    <gap:plugin name="nl.x-services.plugins.socialsharing" />
 
     <icon src="logo.png" />
 
     <!-- Icons APP -->
         <!-- iOS 8.0+ -->
         <!-- iPhone 6 Plus  -->
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-60@3x.png" width="180" height="180" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon-60@3x.png" width="180" height="180" />
         <!-- iOS 7.0+ -->
         <!-- iPhone / iPod Touch  -->
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-60.png" width="60" height="60" />
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-60@2x.png" width="120" height="120" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon-60.png" width="60" height="60" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon-60@2x.png" width="120" height="120" />
         <!-- iPad -->
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-76.png" width="76" height="76" />
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-76@2x.png" width="152" height="152" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon-76.png" width="76" height="76" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon-76@2x.png" width="152" height="152" />
         <!-- iOS 6.1 -->
         <!-- Spotlight Icon -->
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-40.png" width="40" height="40" />
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-40@2x.png" width="80" height="80" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon-40.png" width="40" height="40" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon-40@2x.png" width="80" height="80" />
         <!-- iPhone / iPod Touch -->
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon.png" width="57" height="57" />
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon@2x.png" width="114" height="114" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon.png" width="57" height="57" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon@2x.png" width="114" height="114" />
         <!-- iPad -->
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-72.png" width="72" height="72" />
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-72@2x.png" width="144" height="144" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon-72.png" width="72" height="72" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon-72@2x.png" width="144" height="144" />
         <!-- iPhone Spotlight and Settings Icon -->
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-small.png" width="29" height="29" />
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-small@2x.png" width="58" height="58" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon-small.png" width="29" height="29" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon-small@2x.png" width="58" height="58" />
         <!-- iPad Spotlight and Settings Icon -->
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-50.png" width="50" height="50" />
-        <icon cdv:platform="ios" src="www/img/ios/icon/appicon-50@2x.png" width="100" height="100" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon-50.png" width="50" height="50" />
+        <icon gap:platform="ios" src="www/img/ios/icon/appicon-50@2x.png" width="100" height="100" />
 
-        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default.png" width="320" height="480" />
-        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default@2x.png" width="640" height="960" />
-        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-Portrait.png" width="768" height="1024" />
-        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-Portrait@2x.png" width="1536" height="2048" />
-        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-Landscape.png" width="1024" height="768" />
-        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-Landscape@2x.png" width="2048" height="1536" />
-        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-568h@2x.png" width="640" height="1136" />
-        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-667h.png" width="750" height="1334" />
-        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-736h.png" width="1242" height="2208" />
-        <cdv:splash cdv:platform="ios" src="www/img/ios/splash/Default-Landscape-736h.png" width="2208" height="1242" />
+        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default.png" width="320" height="480" />
+        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default@2x.png" width="640" height="960" />
+        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-Portrait.png" width="768" height="1024" />
+        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-Portrait@2x.png" width="1536" height="2048" />
+        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-Landscape.png" width="1024" height="768" />
+        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-Landscape@2x.png" width="2048" height="1536" />
+        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-568h@2x.png" width="640" height="1136" />
+        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-667h.png" width="750" height="1334" />
+        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-736h.png" width="1242" height="2208" />
+        <gap:splash gap:platform="ios" src="www/img/ios/splash/Default-Landscape-736h.png" width="2208" height="1242" />
 
-        <icon cdv:platform="android" src="www/res/icons/android/ldpi.png" cdv:density="ldpi" />
-        <icon cdv:platform="android" src="www/res/icons/android/mdpi.png" cdv:density="mdpi" />
-        <icon cdv:platform="android" src="www/res/icons/android/hdpi.png" cdv:density="hdpi" />
-        <icon cdv:platform="android" src="www/res/icons/android/xhdpi.png" cdv:density="xhdpi" />
-        <icon cdv:platform="android" src="www/res/icons/android/xxhdpi.png" cdv:density="xxhdpi" />
-        <icon cdv:platform="android" src="www/res/icons/android/xxxhdpi.png" cdv:density="xxxhdpi" />
+        <icon gap:platform="android" src="www/res/icons/android/ldpi.png" gap:density="ldpi" />
+        <icon gap:platform="android" src="www/res/icons/android/mdpi.png" gap:density="mdpi" />
+        <icon gap:platform="android" src="www/res/icons/android/hdpi.png" gap:density="hdpi" />
+        <icon gap:platform="android" src="www/res/icons/android/xhdpi.png" gap:density="xhdpi" />
+        <icon gap:platform="android" src="www/res/icons/android/xxhdpi.png" gap:density="xxhdpi" />
+        <icon gap:platform="android" src="www/res/icons/android/xxxhdpi.png" gap:density="xxxhdpi" />
 
-        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-land-hdpi.png" cdv:density="land-hdpi" />
-        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-land-ldpi.png" cdv:density="land-ldpi" />
-        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-land-mdpi.png" cdv:density="land-mdpi" />
-        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-land-xhdpi.png" cdv:density="land-xhdpi" />
-        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-land-xxhdpi.png" cdv:density="land-xxhdpi" />
-        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-land-xxxhdpi.png" cdv:density="land-xxxhdpi" />
+        <gap:splash gap:platform="android" src="www/res/screens/android/splash-land-hdpi.png" gap:density="land-hdpi" />
+        <gap:splash gap:platform="android" src="www/res/screens/android/splash-land-ldpi.png" gap:density="land-ldpi" />
+        <gap:splash gap:platform="android" src="www/res/screens/android/splash-land-mdpi.png" gap:density="land-mdpi" />
+        <gap:splash gap:platform="android" src="www/res/screens/android/splash-land-xhdpi.png" gap:density="land-xhdpi" />
+        <gap:splash gap:platform="android" src="www/res/screens/android/splash-land-xxhdpi.png" gap:density="land-xxhdpi" />
+        <gap:splash gap:platform="android" src="www/res/screens/android/splash-land-xxxhdpi.png" gap:density="land-xxxhdpi" />
 
-        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-port-hdpi.png" cdv:density="port-hdpi" />
-        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-port-ldpi.png" cdv:density="port-ldpi" />
-        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-port-mdpi.png" cdv:density="port-mdpi" />
-        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-port-xhdpi.png" cdv:density="port-xhdpi" />
-        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-port-xxhdpi.png" cdv:density="port-xxhdpi" />
-        <cdv:splash cdv:platform="android" src="www/res/screens/android/splash-port-xxxhdpi.png" cdv:density="port-xxxhdpi" />
+        <gap:splash gap:platform="android" src="www/res/screens/android/splash-port-hdpi.png" gap:density="port-hdpi" />
+        <gap:splash gap:platform="android" src="www/res/screens/android/splash-port-ldpi.png" gap:density="port-ldpi" />
+        <gap:splash gap:platform="android" src="www/res/screens/android/splash-port-mdpi.png" gap:density="port-mdpi" />
+        <gap:splash gap:platform="android" src="www/res/screens/android/splash-port-xhdpi.png" gap:density="port-xhdpi" />
+        <gap:splash gap:platform="android" src="www/res/screens/android/splash-port-xxhdpi.png" gap:density="port-xxhdpi" />
+        <gap:splash gap:platform="android" src="www/res/screens/android/splash-port-xxxhdpi.png" gap:density="port-xxxhdpi" />
 
 
 
