@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <widget id="com.ionicframework.captei898814" version="0.0.1" xmlns="http://www.w3.org/ns/widgets"  xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Captei</name>
+    <preference name="orientation" value="portrait" />
     <description>
         Ferramenta de clipping
     </description>
@@ -9,7 +10,6 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <preference name="Orientation" value="portrait" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
