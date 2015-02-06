@@ -16,6 +16,7 @@
           <div class="item news-header">                
                 <a ng-click="openDeviceBrowser(alerta.noticia.link)" class="button icon-top ion-ios-world-outline button-outline button-block button-small button-energized"> Ver no site</a>
                 <button ng-click="share(alerta.noticia.titulo, alerta.noticia.link)" class="button icon-top ion-ios-world-outline button-outline button-block button-small button-energized"> Compartilhar</button>
+                <button onclick="window.plugins.socialsharing.share('Minha msg teste', null, null, 'www.google.com')" class="button icon-top ion-ios-world-outline button-outline button-block button-small button-energized"> Compartilhar TESTE</button>
                 <p><a class="link-site" ng-click="openDeviceBrowser(alerta.noticia.link)">{{alerta.noticia.site}}</a> - {{alerta.noticia.data_publicacao| timeAgo}}</p>
                 <p class="news-tag"><strong>Palavras-chave:</strong><span ng-repeat="tag in alerta.tags">{{tag.nome}}</span></p>
           </div>
