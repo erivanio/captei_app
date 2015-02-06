@@ -278,6 +278,10 @@ angular.module('starter.controllers', [])
             $scope.alerta = data.results[0];
         });
 
+        $scope.share = function(texto, link){
+            window.plugins.socialsharing.share(texto, null, null, link);
+        };
+
         $scope.updateAlerta = function (classificacao) {
             $http({
                 method: 'PUT',
