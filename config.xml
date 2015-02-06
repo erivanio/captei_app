@@ -20,7 +20,7 @@
     <gap:platform name="ios"/>
     <gap:platform name="android"/>
 
-    <gap:plugin name="nl.x-services.plugins.socialsharing" version="2.1" />
+    <gap:plugin name="nl.x-services.plugins.socialsharing" version="3.3" />
     <gap:plugin name="org.apache.cordova.console" />
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
