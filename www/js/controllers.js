@@ -263,7 +263,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('InternaCtrl', function ($scope, $http, $stateParams, $location, $rootScope, $state) {
+    .controller('InternaCtrl', function ($scope, $http, $stateParams, $location, $rootScope, $state, $ionicPopup) {
         if ($rootScope.token == undefined) {
             $location.path('login');
         }
@@ -280,6 +280,10 @@ angular.module('starter.controllers', [])
 
         $scope.share = function(texto, link){
             window.plugins.socialsharing.share(texto, null, null, link);
+        };
+
+        $scope.shareWhatsapp = function(texto, link){
+            window.plugins.socialsharing.shareViaWhatsApp(texto, null, link, function() {console.log('share ok')}, function(){$ionicPopup.alert({title: 'Nenhuma conta ativa do Whatsapp',template: '<h1 class="ion-alert-circled"></h1><h4>Logue-se e tente novamente</h4>',okType: 'button-small'});})
         };
 
         $scope.updateAlerta = function (classificacao) {
