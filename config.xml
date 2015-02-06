@@ -15,17 +15,17 @@
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
-
+    <preference name="phonegap-version" value="2.9.0"/>
 
     <gap:platform name="ios"/>
     <gap:platform name="android"/>
 
+    <gap:plugin name="nl.x-services.plugins.socialsharing" version="2.1" />
     <gap:plugin name="org.apache.cordova.console" />
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.splashscreen" version="0.1.0" />
     <gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io"/>
-    <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
     <gap:plugin name="com.ionic.keyboard" />
 
 
