@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
             console.log(user);
             $http({
                 method: 'POST',
-                url: 'http://app.captei.info/mobile/token/',
+                url: 'http://localhost:8000/mobile/token/',
                 data: $.param({username: user.email, password: user.password}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function (data) {
@@ -397,6 +397,29 @@ angular.module('starter.controllers', [])
         }).then(function (modal) {
             $scope.modal = modal;
         });
+    })
+
+    .controller('relatarProblemaCtrl', function ($http, $scope, $state, $rootScope, $ionicLoading) {
+        $scope.relatar_problema = function (form) {
+            $http({
+                method: 'POST',
+                url: 'http://localhost:8000/mobile/api-relatar-problema/' + $rootScope.token,
+                data: $.param({texto: form.texto}),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function () {
+                $ionicLoading.show({
+                    template: 'Mensagem enviada com sucesso',
+                    duration: 3000
+                });
+                $state.go('tab.settings');
+            }).error(function (){
+                $ionicLoading.show({
+                    template: 'Ocorreu um erro, tente novamente.',
+                    duration: 3000
+                });
+                $state.go('tab.settings');
+            });
+        };
     })
 
     .controller('settingsCtrl', function ($scope, $window, $state, $rootScope) {

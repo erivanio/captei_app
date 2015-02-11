@@ -6,18 +6,17 @@
 
     <ion-content class="has-header padding" >
         <p>Explique em poucas palavras o que você gosta, ou que poderia melhorar.</p>
-        <form action="">
+        <form ng-submit="relatar_problema(form)" onsubmit="return false;" action=".">
             <div class="list">
-
                 <label class="item item-input">
-                    <textarea placeholder="" cols="30" rows="10"></textarea>
+                    <textarea id="texto" name="texto" ng-model="form.texto" placeholder="" cols="30" rows="10"></textarea>
                 </label>
             </div>
-        </form>
 
         <div class="">
-            <button class="button button-block button-energized button-icon-left ion-checkmark" ng-click=""> Enviar</button>
+            <button class="button button-block button-energized button-icon-left ion-checkmark" type="submit"> Enviar</button>
         </div>
 
+        </form>
     </ion-content>
 </ion-view>

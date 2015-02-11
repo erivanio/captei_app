@@ -110,6 +110,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
         }
     })
 
+    .state('tab.relatar-problema', {
+        url: '/relatar-problema',
+        views: {
+            'tab-settings': {
+                templateUrl: 'templates/relatar-problema.html',
+                controller: 'relatarProblemaCtrl'
+            }
+        }
+    })
 
     .state('tab.termos-privacidade', {
         url: '/termos-privacidade',
@@ -126,16 +135,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives',
         views: {
             'tab-settings': {
                 templateUrl: 'templates/sobre.html',
-                controller: 'settingsCtrl'
-            }
-        }
-    })
-
-    .state('tab.relatar-problema', {
-        url: '/relatar-problema',
-        views: {
-            'tab-settings': {
-                templateUrl: 'templates/relatar-problema.html',
                 controller: 'settingsCtrl'
             }
         }
