@@ -166,6 +166,13 @@ angular.module('starter.controllers', [])
             $rootScope.tags = root_tag_val;
         }
 
+        $http.get('http://app.captei.info/mobile/api-usuario/' + $rootScope.token + '/').success(function (data) {
+            if (data[0].pacote_tag != undefined) {
+                AdMob.removeBanner();
+                console.log('Eh pra remover');
+            }
+        });
+
         $scope.resetaFiltro = function () {
             $("#data-inicio").val(null);
             $("#data-fim").val(null);
@@ -341,6 +348,8 @@ angular.module('starter.controllers', [])
                 if (data[0].pacote_tag == undefined) {
                     $scope.plano_quantidade = 2;
                 } else {
+                    AdMob.removeBanner();
+                    console.log('Eh pra remover');
                     $scope.plano_quantidade = data[0].pacote_tag.quantidade;
                 }
             });
