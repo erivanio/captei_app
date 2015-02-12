@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
             console.log(user);
             $http({
                 method: 'POST',
-                url: 'http://localhost:8000/mobile/token/',
+                url: 'http://app.captei.info/mobile/token/',
                 data: $.param({username: user.email, password: user.password}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function (data) {
@@ -403,7 +403,7 @@ angular.module('starter.controllers', [])
         $scope.relatar_problema = function (form) {
             $http({
                 method: 'POST',
-                url: 'http://localhost:8000/mobile/api-relatar-problema/' + $rootScope.token,
+                url: 'http://api.captei.info/mobile/api-relatar-problema/' + $rootScope.token,
                 data: $.param({texto: form.texto}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function () {
