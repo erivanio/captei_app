@@ -403,7 +403,7 @@ angular.module('starter.controllers', [])
         $scope.relatar_problema = function (form) {
             $http({
                 method: 'POST',
-                url: 'http://api.captei.info/mobile/api-relatar-problema/' + $rootScope.token,
+                url: 'http://app.captei.info/mobile/api-relatar-problema/' + $rootScope.token,
                 data: $.param({texto: form.texto}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function () {
