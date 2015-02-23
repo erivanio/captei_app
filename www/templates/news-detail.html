@@ -15,9 +15,9 @@
         <div class="list card">
           <div class="item news-header">
               <div class="button-bar">
-                <a ng-click="openDeviceBrowser(alerta.noticia.link)" class="button icon-top ion-ios-world-outline button-outline button-block button-small button-energized"> Ver no site</a>
-                <button ng-click="share(alerta.noticia.titulo, alerta.noticia.link)" class="button icon-top ion-ios-upload-outline button-outline button-block button-small button-energized"> </button>
-                <button ng-click="shareWhatsapp(alerta.noticia.titulo, alerta.noticia.link)" class="button icon-top ion-social-whatsapp-outline button-outline button-block button-small button-energized"> </button>
+                <a ng-click="openDeviceBrowser(alerta.noticia.link)" class="button icon-top ion-ios-world-outline button-outline button-block button-energized"></a>
+                <button ng-click="share(alerta.noticia.titulo, alerta.noticia.link)" class="button icon-top ion-ios-upload-outline button-outline button-block button-energized"> </button>
+                <button ng-click="shareWhatsapp(alerta.noticia.titulo, alerta.noticia.link)" class="button icon-top ion-social-whatsapp-outline button-outline button-block button-energized"> </button>
               </div>
                 <p><a class="link-site" ng-click="openDeviceBrowser(alerta.noticia.link)">{{alerta.noticia.site}}</a> - {{alerta.noticia.data_publicacao| timeAgo}}</p>
                 <p class="news-tag"><strong>Palavras-chave:</strong><span ng-repeat="tag in alerta.tags">{{tag.nome}}</span></p>
