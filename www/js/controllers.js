@@ -21,17 +21,50 @@ angular.module('starter.controllers', [])
             $state.go('tab.listnews', null, {reload: true});
         }
 
-        //$scope.esqueceuSenha = function (email) {
-        //    $http.post('http://app.captei.info/mobile/esqueceu-a-senha/', {
-        //        email: email
-        //    }).success(function (data) {
-        //        console.log('deu certo: ' + data);
-        //        $scope.oModal2.hide();
-        //    }).error(function (data) {
-        //        console.log('deu errado: ' + data);
-        //        $scope.oModal2.hide();
-        //    });
-        //};
+        window.onNotification = function(e) {
+            switch (e.event) {
+                case 'registered':
+                    if (e.regid.length > 0) {
+                        console.log('registration id = ' + e.regid);
+                        $rootScope.idRegistro = e.regid;
+                        $http({
+                            method: 'PUT',
+                            url: 'http://app.captei.info/mobile/update-device/' + $rootScope.token + '/',
+                            data: $.param({id_registro: e.regid, sistema_operacional: '1'}),
+                            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                        }).success(function () {
+                            console.log('Update has success! registration id = ' + e.regid);
+                        });
+                    }
+                    break;
+
+                case 'message':
+                    // this is the actual push notification. its format depends on the data model from the push server
+                    console.log('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
+                    break;
+
+                case 'error':
+                    console.log('GCM error = ' + e.msg);
+                    break;
+
+                default:
+                    console.log('An unknown GCM event has occurred');
+                    break;
+            }
+        };
+
+        function successHandler(result) {
+            console.log('Callback Success! Result = ' + result)
+        }
+
+        function errorHandler(error) {
+            console.log(error);
+        }
+
+        $scope.regIdAndroid = function () {
+            var pushNotification = window.plugins.pushNotification;
+            pushNotification.register(successHandler, errorHandler, {"senderID": "661780372179", "ecb": "onNotification"});
+        };
 
         $scope.cadastrar = function (user) {
             $http({
@@ -54,10 +87,11 @@ angular.module('starter.controllers', [])
                 }).success(function (data) {
                     $rootScope.token = data.token;
                     $scope.oModal1.hide();
-                    if(window.localStorage['didTutorial'] === "true") {
+                    $scope.regIdAndroid();
+                    if (window.localStorage['didTutorial'] === "true") {
                         console.log('Skip intro');
                         $state.go('tab.listnews');
-                    }else{
+                    } else {
                         $state.go('intro');
                     }
                 })
@@ -75,10 +109,11 @@ angular.module('starter.controllers', [])
                 console.log('sucesso');
                 $rootScope.token = data.token;
                 $window.localStorage['token'] = data.token;
-                if(window.localStorage['didTutorial'] === "true") {
+                $scope.regIdAndroid();
+                if (window.localStorage['didTutorial'] === "true") {
                     console.log('Skip intro');
                     $state.go('tab.listnews');
-                }else{
+                } else {
                     $state.go('intro');
                 }
             }).error(function (data) {
@@ -148,7 +183,7 @@ angular.module('starter.controllers', [])
 
 
     .controller('AlertasCtrl', function ($scope, $state, $stateParams, $rootScope, $http, $timeout, $ionicModal, $window) {
-        if ($window.localStorage["tag_val"] == undefined ) {
+        if ($window.localStorage["tag_val"] == undefined) {
             $http.get('http://app.captei.info/mobile/api-mobile/' + $rootScope.token + '/').success(function (data) {
                 var tags = [{"id": 0, "nome": "Todas"}];
                 angular.forEach(data, function (perfil) {
@@ -157,11 +192,11 @@ angular.module('starter.controllers', [])
                     });
                 });
                 $rootScope.tags = tags;
-                if(tags.length == 1) {
+                if (tags.length == 1) {
                     $state.go('tab.addtag');
                 }
             });
-        }else{
+        } else {
             var root_tag_val = JSON.parse($window.localStorage["tag_val"]);
             $rootScope.tags = root_tag_val;
         }
@@ -285,12 +320,20 @@ angular.module('starter.controllers', [])
             $scope.alerta = data.results[0];
         });
 
-        $scope.share = function(texto, link){
+        $scope.share = function (texto, link) {
             window.plugins.socialsharing.share(texto, null, null, link);
         };
 
-        $scope.shareWhatsapp = function(texto, link){
-            window.plugins.socialsharing.shareViaWhatsApp(texto, null, link, function() {console.log('share ok')}, function(){$ionicPopup.alert({title: 'Nenhuma conta ativa do Whatsapp',template: '<h1 class="ion-alert-circled"></h1><h4>Logue-se e tente novamente</h4>',okType: 'button-small'});})
+        $scope.shareWhatsapp = function (texto, link) {
+            window.plugins.socialsharing.shareViaWhatsApp(texto, null, link, function () {
+                console.log('share ok')
+            }, function () {
+                $ionicPopup.alert({
+                    title: 'Nenhuma conta ativa do Whatsapp',
+                    template: '<h1 class="ion-alert-circled"></h1><h4>Logue-se e tente novamente</h4>',
+                    okType: 'button-small'
+                });
+            })
         };
 
         $scope.updateAlerta = function (classificacao) {
@@ -341,7 +384,7 @@ angular.module('starter.controllers', [])
                 });
                 $scope.tags = tags;
                 $scope.perfil_key = data[0].key;
-                console.log('addTAG -  quantidade de tags: '+tags.length);
+                console.log('addTAG -  quantidade de tags: ' + tags.length);
             });
             $http.get('http://app.captei.info/mobile/api-usuario/' + $rootScope.token + '/').success(function (data) {
                 $scope.quantidade_tag = data[0].quantidade_tag;
@@ -421,7 +464,7 @@ angular.module('starter.controllers', [])
                     duration: 3000
                 });
                 $state.go('tab.settings');
-            }).error(function (){
+            }).error(function () {
                 $ionicLoading.show({
                     template: 'Ocorreu um erro, tente novamente.',
                     duration: 3000
@@ -431,12 +474,22 @@ angular.module('starter.controllers', [])
         };
     })
 
-    .controller('settingsCtrl', function ($scope, $window, $state, $rootScope) {
+    .controller('settingsCtrl', function ($http, $scope, $window, $state, $rootScope) {
         $scope.logout = function () {
             delete $rootScope.tags;
             $window.localStorage.removeItem('token');
             $window.localStorage.removeItem('tag');
             $window.localStorage.removeItem('tag_val');
+            $http({
+                method: 'DELETE',
+                url: 'http://app.captei.info/mobile/update-device/' + $rootScope.token + '/',
+                data: $.param({id_registro: $rootScope.idRegistro}),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function () {
+                console.log('registration id apagado');
+            }).error(function(data){
+                console.log(data);
+            });
             $state.go('signin');
         };
         $scope.iniciarTutorial = function () {
