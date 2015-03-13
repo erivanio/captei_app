@@ -63,7 +63,7 @@ angular.module('starter.controllers', [])
 
         $scope.regIdAndroid = function () {
             var pushNotification = window.plugins.pushNotification;
-            pushNotification.register(successHandler, errorHandler, {"senderID": "661780372179", "ecb": "onNotification"});
+            pushNotification.register(successHandler, errorHandler, {"senderID": "1092690435924", "ecb": "onNotification"});
         };
 
         $scope.cadastrar = function (user) {
