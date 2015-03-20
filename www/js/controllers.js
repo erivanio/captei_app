@@ -88,12 +88,13 @@ angular.module('starter.controllers', [])
                     $rootScope.token = data.token;
                     $scope.oModal1.hide();
                     $scope.regIdAndroid();
-                    if (window.localStorage['didTutorial'] === "true") {
-                        console.log('Skip intro');
-                        $state.go('tab.listnews');
-                    } else {
-                        $state.go('intro');
-                    }
+                    $state.go('tab.listnews');
+                    //if (window.localStorage['didTutorial'] === "true") {
+                    //    console.log('Skip intro');
+                    //    $state.go('tab.listnews');
+                    //} else {
+                    //    $state.go('intro');
+                    //}
                 })
             });
         };
@@ -110,12 +111,13 @@ angular.module('starter.controllers', [])
                 $rootScope.token = data.token;
                 $window.localStorage['token'] = data.token;
                 $scope.regIdAndroid();
-                if (window.localStorage['didTutorial'] === "true") {
-                    console.log('Skip intro');
-                    $state.go('tab.listnews');
-                } else {
-                    $state.go('intro');
-                }
+                $state.go('tab.listnews');
+                //if (window.localStorage['didTutorial'] === "true") {
+                //    console.log('Skip intro');
+                //    $state.go('tab.listnews');
+                //} else {
+                //    $state.go('intro');
+                //}
             }).error(function (data) {
                 $scope.showAlert();
             });
