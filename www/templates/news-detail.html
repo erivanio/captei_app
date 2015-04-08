@@ -26,7 +26,8 @@
 
           <div class="item item-body news-body">
               <h2>{{alerta.noticia.titulo}}</h2>
-              <div ng-bind-html="alerta.noticia.texto|hrefToJS"></div>
+              <!-- testando o filtro -->
+              <div ng-bind-html="alerta.noticia.texto|externalLinks"></div>
           </div>
 
         </div>

@@ -206,7 +206,6 @@ angular.module('starter.controllers', [])
         $http.get('http://app.captei.info/mobile/api-usuario/' + $rootScope.token + '/').success(function (data) {
             if (data[0].pacote_tag != undefined) {
                 AdMob.removeBanner();
-                console.log('Eh pra remover');
             }
         });
 
@@ -307,7 +306,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('InternaCtrl', function ($scope, $http, $stateParams, $location, $rootScope, $state, $ionicPopup) {
+    .controller('InternaCtrl', function ($scope, $sce, $http, $stateParams, $location, $rootScope, $state, $ionicPopup, $timeout) {
         if ($rootScope.token == undefined) {
             $location.path('login');
         }
@@ -321,6 +320,14 @@ angular.module('starter.controllers', [])
         }).success(function (data) {
             $scope.alerta = data.results[0];
         });
+
+        $timeout(function(){
+            jQuery('.ex-link').click(function (e) {
+                var url = jQuery(this).attr('href');
+                e.preventDefault();
+                window.open(url, "_system", "location=no");
+            })
+        },1000);
 
         $scope.share = function (texto, link) {
             window.plugins.socialsharing.share(texto, null, null, link);

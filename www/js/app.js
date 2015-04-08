@@ -6,11 +6,17 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.directives','ngSanitize', 'yaru22.angular-timeago'])
 
-.filter('hrefToJS', function($sce, $sanitize) {
+//.filter('hrefToJS', function($sce, $sanitize) {
+//    return function(text) {
+//        var regex = /href="([\S]+)"/g;
+//        var newString = $sanitize(text).replace(regex, "onClick=\"window.open('$1', '_system', 'location=yes')\"");
+//        return $sce.trustAsHtml(newString);
+//    }
+//})
+// testando este filtro
+.filter('externalLinks', function() {
     return function(text) {
-        var regex = /href="([\S]+)"/g;
-        var newString = $sanitize(text).replace(regex, "onClick=\"window.open('$1', '_system', 'location=yes')\"");
-        return $sce.trustAsHtml(newString);
+        return String(text).replace(/href=/gm, "class=\"ex-link\" href=");
     }
 })
 
